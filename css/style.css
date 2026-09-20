@@ -1,0 +1,1603 @@
+@charset "UTF-8";
+/* =========================================================
+   ママのための『親の役割ってなぁ〜に？』 LP
+   単位ルール: 1rem = スマホ375px幅での10px（カラム幅に比例して拡縮）
+   配色・寸法の根拠は 参考LP分析.md を参照
+   ========================================================= */
+
+:root {
+  /* はなきりん ブランドカラー */
+  --teal: #51aab7;
+  --teal-deep: #2f7f8c;   /* 派生色: 白文字を載せる濃い面用 */
+  --aqua: #a7d2d8;
+  --aqua-pale: #eef9fb;
+  --aqua-box: #e1f1f4;    /* 派生色: 白背景の上に敷く淡い箱 */
+  --yellow: #ffda3f;
+  --yellow-shade: #a89853;
+  --marker: #ffef8a;
+  --coral: #f3aaa5;
+  --coral-text: #e07a73;  /* 派生色: 白地に載せる文字用 */
+  --brown: #614839;
+  --brown-deep: #382114;
+  --base: #f8f8f4;
+
+  --col: min(100vw, 500px);
+  --ff-head: "M PLUS 1p", "Noto Sans JP", sans-serif;
+  --ff-body: "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
+  --ff-hand: "Zen Kurenaido", "Noto Sans JP", sans-serif;
+  --ff-num: "Poppins", "M PLUS 1p", sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { font-size: calc(var(--col) / 37.5); -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  overflow-x: hidden;
+  background: var(--base);
+  color: var(--brown);
+  font-family: var(--ff-body);
+  font-size: 1.4rem;
+  line-height: 2;
+  letter-spacing: .04em;
+  -webkit-font-smoothing: antialiased;
+}
+img, svg { display: block; max-width: 100%; height: auto; }
+ul { list-style: none; margin: 0; padding: 0; }
+p, h1, h2, h3 { margin: 0; }
+em, i { font-style: normal; }
+
+.lp {
+  width: var(--col);
+  margin: 0 auto;
+  background: #fff;
+  overflow: hidden;
+  box-shadow: 0 0 4rem rgba(81, 170, 183, .12);
+}
+
+.marker { background: var(--marker); font-weight: 700; color: var(--brown-deep); }
+
+/* =========================================================
+   FV: ヘッダー帯（ママの心の声）
+   ========================================================= */
+.fv-head {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  gap: .8rem;
+  padding: .9rem 1rem 0 1.2rem;
+  background: var(--teal-deep);
+}
+.fv-head__illust { flex: none; width: 4.7rem; height: auto; margin: 0 -.2rem 0 -.2rem; }
+.fv-head__voice {
+  padding-bottom: .9rem;
+  color: #fff;
+  font-family: var(--ff-hand);
+  font-size: 1.25rem;
+  line-height: 1.7;
+  letter-spacing: .03em;
+  white-space: nowrap;
+  -webkit-text-stroke: .03em currentColor;
+}
+.fv-head__voice em {
+  color: var(--yellow);
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 6' preserveAspectRatio='none'%3E%3Cpath d='M1 4C18 1 30 5 48 3s34-2 51 0' fill='none' stroke='%23ffda3f' stroke-width='1.6' stroke-linecap='round'/%3E%3C/svg%3E") left bottom / 100% .5rem no-repeat;
+  padding-bottom: .2rem;
+}
+
+/* =========================================================
+   FV: メイン
+   ========================================================= */
+.fv {
+  position: relative;
+  padding-bottom: 3.2rem;
+  background:
+    radial-gradient(60% 22rem at 85% 8rem, rgba(255, 255, 255, .85), transparent 70%),
+    linear-gradient(180deg, #cfe8ec 0, #dff0f3 18rem, #fff 40rem);
+}
+.fv-main { position: relative; height: 32.8rem; }
+
+.fv-teacher {
+  position: absolute;
+  top: -.5rem;
+  right: -8.7rem;
+  width: 36rem;
+  max-width: none;
+}
+
+/* 黄色帯の手書きテロップ */
+.fv-telop {
+  position: absolute;
+  z-index: 1;
+  top: 1.7rem;
+  left: .7rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: .45rem;
+  transform: rotate(-4deg);
+  transform-origin: left top;
+  font-family: var(--ff-hand);
+  font-size: 1.55rem;
+  line-height: 1;
+  letter-spacing: .06em;
+  color: var(--brown-deep);
+  -webkit-text-stroke: .035em currentColor;
+}
+.fv-telop span { padding: .5rem .8rem .55rem; background: var(--yellow); }
+.fv-telop span:nth-child(2) { margin-left: 1.4rem; }
+.fv-telop span:nth-child(3) { margin-left: 0; }
+
+/* 権威バッジ */
+.fv-authority {
+  position: absolute;
+  z-index: 1;
+  top: 12.6rem;
+  left: .8rem;
+  display: flex;
+  align-items: center;
+  gap: .6rem;
+}
+.fv-authority__bubble {
+  position: relative;
+  flex: none;
+  width: 8.6rem;
+  padding: 1.05rem 0 1.15rem;
+  color: #fff;
+  font-family: var(--ff-head);
+  font-weight: 800;
+  font-size: 1.15rem;
+  line-height: 1.25;
+  letter-spacing: 0;
+  text-align: center;
+  white-space: nowrap;
+  transform: rotate(-8deg);
+}
+/* 楕円としっぽを1つのSVGで描く（しっぽは右下＝説明文の方向へ） */
+.fv-authority__bubble::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: 0 0 -20% 0;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 72' preserveAspectRatio='none'%3E%3Cpath fill='%2351aab7' d='M50 0c27.6 0 50 13.4 50 30 0 8.3-5.6 15.8-14.7 21.2 2.4 6.8 6.2 13.2 11.7 19.8-10.6-2.6-19.6-7.2-26.4-13.6C64.2 59.1 57.3 60 50 60 22.4 60 0 46.6 0 30S22.4 0 50 0z'/%3E%3C/svg%3E") center / 100% 100% no-repeat;
+}
+.fv-authority__bubble b { font-family: var(--ff-num); font-size: 1.6rem; font-weight: 600; }
+.fv-authority__text {
+  font-family: var(--ff-head);
+  font-weight: 700;
+  font-size: 1.12rem;
+  line-height: 1.55;
+  letter-spacing: 0;
+  white-space: nowrap;
+  color: var(--brown-deep);
+  text-shadow: 0 0 .4rem #fff, 0 0 .4rem #fff, 0 0 .8rem #fff;
+}
+
+/* タイトル（白ベタ抜き） */
+.fv-title {
+  position: absolute;
+  z-index: 1;
+  top: 20.2rem;
+  left: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: .5rem;
+  font-family: var(--ff-head);
+  font-weight: 800;
+  color: var(--coral-text);
+  line-height: 1;
+  letter-spacing: .02em;
+  white-space: nowrap;
+}
+.fv-title__pre, .fv-title__main { background: rgba(255, 255, 255, .92); }
+.fv-title__pre { padding: .6rem .8rem .7rem; font-size: 2.4rem; }
+.fv-title__main { padding: .8rem .8rem 1rem; font-size: 2.75rem; letter-spacing: 0; }
+.fv-title__main i { font-size: .7em; letter-spacing: -.1em; }
+/* 小さくしたカギ括弧は、『を文字の上端に・』を下端に合わせる */
+.fv-title__main i { position: relative; }
+.fv-title__main i:first-child { margin-left: -.35em; top: -.4em; }
+.fv-title__main i:last-child { margin-right: -.25em; top: .06em; }
+.fv-title__sub { margin-top: .3rem; padding: .5rem .8rem .6rem; background: rgba(255, 255, 255, .92); font-size: 1.45rem; font-weight: 700; letter-spacing: .04em; }
+
+/* ポラロイド風セミナー写真 */
+/* リード文の右に浮かせ、文章を左の空きに回り込ませる */
+.fv-photos { position: relative; z-index: 1; float: right; width: 15.6rem; height: 10.2rem; margin: -.4rem -1.6rem .4rem .6rem; }
+.fv-photos img {
+  position: absolute;
+  width: 11.2rem;
+  border: .3rem solid #fff;
+  box-shadow: 0 .2rem .6rem rgba(56, 33, 20, .22);
+}
+.fv-photos img:nth-child(1) { left: -1rem; top: 1rem; transform: rotate(-5deg); }
+.fv-photos img:nth-child(2) { right: 0; top: 0; transform: rotate(6deg); }
+
+/* リード */
+.fv-lead { position: relative; padding: .6rem 2rem 0; font-size: 1.4rem; line-height: 1.9; color: var(--brown-deep); }
+.fv-lead__pause { margin-top: .8rem; letter-spacing: .2em; }
+.fv-lead::after { content: ""; display: block; clear: both; }
+.fv-lead__key {
+  margin: .4rem 0 .6rem;
+  font-family: var(--ff-head);
+  font-weight: 700;
+  font-size: 1.7rem;
+  line-height: 1.6;
+  letter-spacing: .02em;
+}
+.fv-lead__key .marker { padding: .1rem .2rem; }
+.fv-lead__rest { margin-left: .2rem; font-family: var(--ff-body); font-weight: 400; font-size: 1.4rem; letter-spacing: .04em; }
+.fv-lead strong { margin-left: .3rem; color: var(--coral-text); font-family: var(--ff-head); font-weight: 800; font-size: 1.7rem; }
+.fv-lead strong b { font-family: var(--ff-num); font-size: 2.6rem; font-weight: 600; line-height: 1; letter-spacing: 0; }
+
+/* 「〜に選ばれています」吹き出し */
+.fv-chosen {
+  position: relative;
+  width: fit-content;
+  margin: 2.6rem auto 0;
+  padding: .6rem 1.4rem .8rem;
+  border-radius: .6rem;
+  background: #c5e3e7;
+  color: var(--brown-deep);
+  font-family: var(--ff-head);
+  font-weight: 800;
+  font-size: 1.4rem;
+  line-height: 1.5;
+  letter-spacing: 0;
+  white-space: nowrap;
+}
+.fv-chosen::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 100%;
+  margin: -1px 0 0 -.9rem;
+  border: .9rem solid transparent;
+  border-top: 1.1rem solid #c5e3e7;
+  border-bottom: 0;
+}
+.fv-chosen em { color: var(--coral-text); font-size: 1.65rem; }
+.fv-chosen b { font-family: var(--ff-num); font-weight: 600; font-size: 2.15rem; line-height: 1; letter-spacing: 0; }
+
+/* 実績3連 */
+.fv-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: .7rem;
+  margin: 1.8rem 1.2rem 0;
+}
+.fv-stats li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 12.4rem;
+  padding: 1.4rem .2rem 3rem;
+  border-radius: 1rem 0 1rem 1rem;
+  background: var(--teal-deep);
+  color: #fff;
+  text-align: center;
+}
+.fv-stats__label { font-family: var(--ff-head); font-weight: 700; font-size: 1.3rem; line-height: 1.4; letter-spacing: .04em; }
+.fv-stats__num {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: center;
+  margin-top: .6rem;
+  color: var(--yellow);
+  font-family: var(--ff-head);
+  font-weight: 800;
+  font-size: 1.5rem;
+  line-height: 1.1;
+  letter-spacing: 0;
+}
+.fv-stats__num b { font-family: var(--ff-num); font-weight: 500; font-size: 2.9rem; letter-spacing: -.02em; margin-right: .1rem; }
+.fv-stats__num small { font-size: 1.15rem; font-weight: 700; }
+.fv-stats__num--stack { margin-top: .2rem; }
+.fv-stats__num--stack small:first-child { flex-basis: 100%; margin-bottom: -.2rem; }
+.fv-stats__num--stack b { font-size: 2.7rem; }
+.fv-stats__num--stack small:last-child { margin-left: .1rem; font-size: 1.05rem; letter-spacing: -.04em; }
+
+/* 過去の開催実績 */
+.fv-record {
+  position: relative;
+  margin: -1.4rem 1.2rem 0;
+  padding: 4.4rem 1.3rem 2rem;
+  border-radius: 1rem;
+  background: var(--aqua-box);
+}
+.fv-record__ribbon {
+  position: absolute;
+  top: -1.6rem;
+  left: 50%;
+  width: 21rem;
+  height: 4.4rem;
+  transform: translateX(-50%);
+  display: grid;
+  place-items: center;
+  color: #fff;
+  font-family: var(--ff-head);
+  font-weight: 800;
+  font-size: 1.7rem;
+  letter-spacing: .06em;
+  line-height: 1;
+}
+.fv-record__ribbon svg { position: absolute; inset: 0; width: 100%; height: 100%; fill: var(--teal); }
+.fv-record__ribbon span { position: relative; padding-top: .2rem; }
+.fv-record__list li {
+  position: relative;
+  padding-left: 1.1rem;
+  font-size: 1.2rem;
+  line-height: 1.6;
+  letter-spacing: 0;
+  color: var(--brown-deep);
+}
+.fv-record__list li + li { margin-top: .7rem; }
+.fv-record__list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: .75rem;
+  width: .5rem;
+  height: .5rem;
+  border-radius: 50%;
+  background: var(--teal);
+}
+
+/* =========================================================
+   写真帯
+   ========================================================= */
+.strip { display: grid; grid-template-columns: repeat(4, 1fr); }
+.strip img { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; }
+
+/* =========================================================
+   特典
+   ========================================================= */
+.benefit { padding: 3.6rem 1.2rem 4rem; background: #fff; }
+.benefit__box { padding: 0 1.4rem .6rem; border-radius: 1rem; background: var(--aqua-box); }
+.benefit__ribbon { margin: 0 -2rem; transform: translateY(-1.2rem); line-height: 0; }
+.benefit__ribbon svg { width: 100%; height: auto; overflow: visible; }
+.benefit__ribbon .tail { fill: var(--teal-deep); }
+.benefit__ribbon .band { fill: var(--teal); }
+.benefit__ribbon .stitch { fill: none; stroke: #fff; stroke-width: 1; opacity: .9; }
+/* 文字は帯の中心線(textPath)に沿って波状に流す */
+.benefit__ribbon .label { fill: #fff; font-family: var(--ff-head); font-weight: 800; font-size: 18.5px; letter-spacing: .05em; }
+
+.benefit__item {
+  display: grid;
+  grid-template-columns: 6rem 1fr 8.4rem;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.6rem 0 2rem;
+}
+.benefit__item + .benefit__item { border-top: 1px dashed #9fb9bd; padding-top: 2rem; }
+.benefit__badge {
+  display: grid;
+  place-content: center;
+  width: 6rem;
+  height: 6rem;
+  border: .15rem solid var(--teal);
+  border-radius: 50%;
+  background:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 40'%3E%3Cpath d='M6 36 2 10l15 12L30 3l13 19 15-12-4 26z' fill='%23e1f1f4'/%3E%3C/svg%3E") center 46% / 78% no-repeat,
+    #fff;
+  color: var(--teal-deep);
+  font-family: var(--ff-head);
+  font-weight: 800;
+  font-size: 1.45rem;
+  line-height: 1.3;
+  letter-spacing: 0;
+  text-align: center;
+  white-space: nowrap;
+}
+.benefit__badge b { font-family: var(--ff-num); font-weight: 600; font-size: 1.9rem; line-height: 1; margin-left: .15rem; }
+.benefit__text {
+  font-family: var(--ff-head);
+  font-weight: 800;
+  font-size: 1.9rem;
+  line-height: 1.4;
+  letter-spacing: .02em;
+  color: var(--brown-deep);
+  white-space: nowrap;
+}
+.benefit__text small { display: block; font-size: 1.3rem; font-weight: 700; margin-bottom: .1rem; }
+.benefit__text em { color: var(--coral-text); font-size: 2.2rem; }
+.benefit__note {
+  display: block;
+  margin-top: .5rem;
+  font-family: var(--ff-body);
+  font-weight: 400;
+  font-size: 1.05rem;
+  letter-spacing: 0;
+  color: var(--brown);
+}
+.benefit__img { width: 8.4rem; border-radius: .4rem; }
+.benefit__img--doc { width: 10rem; max-width: none; margin: -.8rem -.8rem; border-radius: 0; filter: drop-shadow(0 .2rem .3rem rgba(56, 33, 20, .15)); }
+
+/* =========================================================
+   開催日程（オファー）
+   ========================================================= */
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+
+.schedule { padding: 4.4rem 2rem 4.8rem; background: var(--teal-deep); text-align: center; }
+.schedule__title {
+  display: inline-block;
+  padding: 0 .6rem .9rem;
+  color: var(--yellow);
+  font-family: var(--ff-head);
+  font-weight: 800;
+  font-size: 3.6rem;
+  line-height: 1.2;
+  letter-spacing: .08em;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 6' preserveAspectRatio='none'%3E%3Cpath d='M1 4C18 1 30 5 48 3s34-2 51 0' fill='none' stroke='%23fff' stroke-width='1.2' stroke-linecap='round' opacity='.7'/%3E%3C/svg%3E") center bottom / 100% .6rem no-repeat;
+}
+.schedule__tags { display: flex; flex-wrap: wrap; justify-content: center; gap: .8rem; margin-top: 1.6rem; }
+.schedule__tags li {
+  padding: .5rem 1.3rem .6rem;
+  border-radius: 99rem;
+  background: #fff;
+  color: var(--teal-deep);
+  font-family: var(--ff-head);
+  font-weight: 700;
+  font-size: 1.35rem;
+  line-height: 1.4;
+  letter-spacing: .02em;
+}
+
+.schedule-card {
+  position: relative;
+  margin-top: 2.4rem;
+  padding: 2.4rem 2rem 2.6rem;
+  border-radius: 1rem 1rem 2rem 1rem;
+  background: #fff;
+  text-align: left;
+}
+.schedule-card__status {
+  display: inline-block;
+  padding: .3rem 1rem .4rem;
+  border-radius: .2rem;
+  background: var(--teal);
+  color: #fff;
+  font-weight: 700;
+  font-size: 1.2rem;
+  line-height: 1.4;
+}
+.schedule-card__info { display: grid; grid-template-columns: 2rem 1fr; gap: 1.2rem .8rem; margin: 1.2rem 0 0; }
+.schedule-card__info dt { position: relative; padding-top: .75rem; }
+.schedule-card__info dt svg { width: 1.7rem; height: 1.7rem; fill: var(--teal); }
+.schedule-card__info dd {
+  margin: 0;
+  color: var(--brown-deep);
+  font-family: var(--ff-head);
+  font-weight: 700;
+  line-height: 1.5;
+  letter-spacing: .02em;
+}
+.schedule-card__info dd span { display: block; }
+.schedule-card__date { font-size: 1.7rem; white-space: nowrap; }
+.schedule-card__date b { font-family: var(--ff-num); font-weight: 600; font-size: 2.6rem; line-height: 1.2; letter-spacing: 0; margin: 0 .1rem; }
+.schedule-card__date b:first-child { font-size: 1.9rem; margin-left: 0; }
+.schedule-card__date small { font-size: 1.5rem; }
+.schedule-card__time { font-size: 1.6rem; }
+.schedule-card__time b { font-family: var(--ff-num); font-weight: 600; font-size: 2.2rem; letter-spacing: 0; }
+.schedule-card__open {
+  width: fit-content;
+  margin-top: .4rem;
+  padding: .1rem .9rem .2rem;
+  border-radius: 99rem;
+  background: var(--aqua-box);
+  color: var(--teal-deep);
+  font-size: 1.25rem;
+}
+.schedule-card__place { font-size: 1.9rem; padding-top: .3rem; }
+.schedule-card__area { font-family: var(--ff-body); font-weight: 400; font-size: 1.3rem; margin-left: -.5em; }
+.schedule-card__name {
+  margin-top: 1.4rem;
+  padding-top: 1.2rem;
+  border-top: 1px dashed #c9d9dc;
+  font-size: 1.25rem;
+  line-height: 1.7;
+  letter-spacing: .02em;
+}
+.schedule-card__limit {
+  margin-top: 1.4rem;
+  text-align: center;
+  color: var(--coral-text);
+  font-family: var(--ff-head);
+  font-weight: 800;
+  font-size: 1.5rem;
+  line-height: 1.4;
+}
+.schedule-card__limit b { font-family: var(--ff-num); font-weight: 600; font-size: 2.2rem; margin: 0 .1rem; letter-spacing: 0; }
+
+/* CTAボタン（はなきりん公式と同じ、下に厚みのあるピル型） */
+.btn-cta {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 28rem;
+  min-height: 6rem;
+  margin: 2rem auto 0;
+  padding: 0 3.6rem .2rem;
+  border-radius: 99rem;
+  background: var(--yellow);
+  box-shadow: 0 .5rem 0 var(--yellow-shade);
+  color: var(--brown-deep);
+  font-family: var(--ff-head);
+  font-weight: 800;
+  font-size: 1.9rem;
+  letter-spacing: .06em;
+  text-decoration: none;
+  transition: transform .15s, box-shadow .15s;
+}
+.btn-cta::after {
+  content: "";
+  position: absolute;
+  right: 2rem;
+  top: 50%;
+  border: .55rem solid transparent;
+  border-left: .9rem solid var(--brown-deep);
+  border-right: 0;
+  transform: translateY(-50%);
+}
+.btn-cta:hover, .btn-cta:active { transform: translateY(.3rem); box-shadow: 0 .2rem 0 var(--yellow-shade); }
+
+/* =========================================================
+   お客様の声
+   ========================================================= */
+.voice { padding: 4.8rem 2rem 5.2rem; background: var(--aqua); }
+.voice__title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: var(--ff-head);
+  font-weight: 800;
+  color: var(--brown-deep);
+  line-height: 1.3;
+  letter-spacing: .04em;
+  white-space: nowrap;
+}
+.voice__title-top { display: flex; align-items: center; gap: .8rem; font-size: 1.9rem; }
+.voice__title-top i {
+  padding: .3rem .9rem .4rem;
+  border-radius: .4rem;
+  background: #fff;
+  color: var(--coral-text);
+  font-size: 1.8rem;
+  letter-spacing: .02em;
+}
+.voice__title-main {
+  position: relative;
+  margin: .8rem 0 .9rem;
+  padding: 0 4.6rem;
+  font-size: 2.2rem;
+  /* 左右の集中線 */
+  background:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 50'%3E%3Cpath d='M4 4l22 28M2 24l26 20' stroke='%232f7f8c' stroke-width='1.6' stroke-linecap='round'/%3E%3C/svg%3E") left center / 3.4rem no-repeat,
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 50'%3E%3Cpath d='M36 4L14 32M38 24L12 44' stroke='%232f7f8c' stroke-width='1.6' stroke-linecap='round'/%3E%3C/svg%3E") right center / 3.4rem no-repeat;
+}
+/* 1文字ずつ傾きと高さを変えて、上に膨らむゆるいアーチに並べる */
+.voice__title-main i { display: inline-block; transform-origin: center bottom; }
+.voice__title-main b i:nth-child(1) { transform: translateY(.75rem) rotate(-9deg); }
+.voice__title-main b i:nth-child(2) { transform: translateY(.2rem) rotate(-4.5deg); }
+.voice__title-main b i:nth-child(3) { transform: translateY(0) rotate(0deg); }
+.voice__title-main b i:nth-child(4) { transform: translateY(.2rem) rotate(4.5deg); }
+.voice__title-main b i:nth-child(5) { transform: translateY(.75rem) rotate(9deg); }
+.voice__title-main .wo { transform: translateY(.7rem) rotate(11deg); margin-left: .3rem; }
+.voice__title-main b { color: var(--teal-deep); font-size: 4.2rem; font-weight: 800; letter-spacing: .02em; margin-right: .2rem; }
+.voice__title-bottom { font-size: 2.4rem; }
+
+.voice__cards { position: relative; margin-top: 7.4rem; }
+.voice__mascot { position: absolute; left: -.6rem; top: -7.6rem; width: 7.2rem; transform: rotate(-6deg); }
+
+.voice-card { position: relative; padding: 2.8rem 2rem 2.6rem; border-radius: 1rem; background: #fff; }
+.voice-card + .voice-card { margin-top: 6.4rem; }
+/* 円から頭が少し出て、挙げた手が円の外にのぞくイラスト（円・切り抜きはSVG側で処理） */
+.voice-card__illust { position: absolute; right: .6rem; top: -8.4rem; width: 16rem; pointer-events: none; }
+.voice-card__illust svg { width: 100%; overflow: visible; }
+.voice-card__who {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
+  gap: 0 1em;
+  width: calc(100% - 12.4rem);
+  min-height: 5.6rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px dashed #b9b9b0;
+  color: var(--brown-deep);
+  font-family: var(--ff-head);
+  font-weight: 800;
+  font-size: 1.7rem;
+  line-height: 1.45;
+  letter-spacing: .04em;
+}
+.voice-card__who span { white-space: nowrap; }
+.voice-card__lead {
+  position: relative;
+  margin-top: 2.6rem;
+  padding-bottom: 2.4rem;
+  color: var(--brown-deep);
+  font-family: var(--ff-head);
+  font-weight: 700;
+  font-size: 1.65rem;
+  line-height: 1.8;
+  letter-spacing: .02em;
+}
+.voice-card__lead .marker { padding: .15rem 0; -webkit-box-decoration-break: clone; box-decoration-break: clone; }
+.voice-card__lead::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 7.6rem;
+  height: 1px;
+  background: var(--brown-deep);
+  transform: translateX(-50%);
+}
+.voice-card__body { margin-top: 2.4rem; }
+.voice-card__body p + p { margin-top: 1.4rem; }
+.voice-card__body em { color: var(--coral-text); font-weight: 700; }
+
+/* =========================================================
+   アンケート・満足度
+   ========================================================= */
+.survey { position: relative; padding: .4rem 2rem 5.6rem; background: var(--aqua); }
+/* 見出しは2行とも上に膨らむアーチに沿わせる（SVG textPath） */
+.survey__title { margin: 0 -.6rem; line-height: 0; }
+.survey__title svg { width: 100%; height: auto; overflow: visible; }
+.survey__title text {
+  fill: var(--brown-deep);
+  stroke: var(--brown-deep);
+  stroke-width: .5px;
+  font-family: var(--ff-hand);
+  font-size: 20.5px;
+  letter-spacing: .06em;
+}
+.survey__title .slash { fill: none; stroke: var(--brown-deep); stroke-width: 1; stroke-linecap: round; }
+
+/* 扇状に重ねたアンケート用紙 */
+.survey__sheets { position: relative; height: 21rem; margin: 1.6rem -1rem 0; }
+.survey__sheets svg {
+  position: absolute;
+  width: 12.4rem;
+  filter: drop-shadow(0 .3rem .5rem rgba(56, 33, 20, .18));
+}
+.survey__sheets svg:nth-child(1) { left: .4rem; top: 3.2rem; transform: rotate(-14deg); }
+.survey__sheets svg:nth-child(2) { right: .4rem; top: 3rem; transform: rotate(13deg); }
+.survey__sheets svg:nth-child(3) { left: 6.6rem; top: 1.2rem; transform: rotate(-6deg); }
+.survey__sheets svg:nth-child(4) { right: 6.4rem; top: 1rem; transform: rotate(7deg); }
+.survey__sheets svg:nth-child(5) { left: 50%; top: 0; margin-left: -6.2rem; transform: rotate(-1deg); }
+
+.survey__ratings {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.2rem;
+  margin-top: -2rem;
+}
+.rating-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 1.8rem .4rem 1.2rem;
+  border: .15rem solid #e3c65a;
+  border-radius: .4rem;
+  background: #fff;
+  box-shadow: 0 .2rem .6rem rgba(56, 33, 20, .08);
+  text-align: center;
+}
+.rating-card--center { grid-column: 1 / -1; width: calc(50% - .6rem); margin: 0 auto; }
+.rating-card__label {
+  display: grid;
+  place-items: center;
+  flex: 1;
+  color: var(--brown-deep);
+  font-family: var(--ff-head);
+  font-weight: 700;
+  font-size: 1.7rem;
+  line-height: 1.45;
+  letter-spacing: .02em;
+  white-space: nowrap;
+}
+.rating-card__stars {
+  margin-top: .6rem;
+  font-size: 2.4rem;
+  line-height: 1.1;
+  letter-spacing: .04em;
+  color: transparent;
+  /* 5つ目の星の欠けが伝わるよう、塗り分け位置は実数値より少し強調している（4.7→約55%、4.8→約65%） */
+  background: linear-gradient(90deg, #f7c52b var(--rate), #c4c4ba var(--rate));
+  -webkit-background-clip: text;
+          background-clip: text;
+}
+.rating-card__num {
+  color: var(--brown-deep);
+  font-family: var(--ff-num);
+  font-weight: 600;
+  font-size: 4rem;
+  line-height: 1.15;
+  letter-spacing: 0;
+}
+/* 次の見出し帯の上端から首を出す */
+.survey__mascot { position: absolute; right: 2.6rem; bottom: -.1rem; width: 7.4rem; transform: scaleX(-1); transform-origin: center bottom; }
+
+/* =========================================================
+   お悩み
+   ========================================================= */
+.worry { position: relative; padding-bottom: 0; background: var(--aqua-box); }
+.worry__title {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding: 3rem 0 3.2rem;
+  background: var(--teal-deep);
+  color: #fff;
+  font-family: var(--ff-head);
+  font-weight: 800;
+  font-size: 2rem;
+  line-height: 1.2;
+  letter-spacing: .04em;
+  white-space: nowrap;
+}
+.worry__title::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 100%;
+  margin: -1px 0 0 -1.3rem;
+  border: 1.3rem solid transparent;
+  border-top: 1.8rem solid var(--teal-deep);
+  border-bottom: 0;
+}
+.worry__title span { display: flex; align-items: center; }
+.worry__title em {
+  margin-right: .3rem;
+  padding: 0 .2rem .7rem;
+  font-size: 3rem;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 8' preserveAspectRatio='none'%3E%3Cpath d='M2 5C20 1 34 7 52 4s30-3 46 0' fill='none' stroke='%23ffda3f' stroke-width='2.4' stroke-linecap='round'/%3E%3C/svg%3E") left bottom / 100% .8rem no-repeat;
+}
+.worry__title b {
+  margin: 0 .8rem;
+  padding: .3rem 1rem .5rem;
+  border: 1px solid #fff;
+  border-radius: .4rem;
+  font-size: 3rem;
+  font-weight: 800;
+}
+
+.worry__list { position: relative; z-index: 1; display: flex; flex-direction: column; align-items: flex-start; gap: 1.2rem; padding: 4.8rem 1.2rem 2.2rem; }
+.worry__list li {
+  position: relative;
+  padding: 2.1rem 1.6rem 2.3rem;
+  color: var(--brown-deep);
+  font-family: var(--ff-hand);
+  font-size: 1.62rem;
+  line-height: 1.7;
+  letter-spacing: .03em;
+  text-align: center;
+  white-space: nowrap;
+  -webkit-text-stroke: .025em currentColor;
+}
+/* 角を大きく丸めた四角を、辺だけわずかに波打たせた手切り風の形（1つずつ変える） */
+.worry__list li:nth-child(1) { margin-left: -.6rem; padding-left: 1.4rem; padding-right: 1.4rem; letter-spacing: 0; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 100' preserveAspectRatio='none'%3E%3Cpath fill='%23c5e3e7' d='M50 3C112 0 190 6 250 2c31-1 48 20 47 48 1 30-16 48-46 47-62 3-140-3-202 1C19 99 2 79 3 50 2 21 19 2 50 3z'/%3E%3C/svg%3E") center / 100% 100% no-repeat; }
+.worry__list li:nth-child(2) { background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 100' preserveAspectRatio='none'%3E%3Cpath fill='%23fbfbf8' d='M47 4c64 4 140-4 204 0 30-1 48 19 46 47 2 29-15 47-45 46-64-4-140 4-204 0C18 98 1 77 3 49 1 21 18 3 47 4z'/%3E%3C/svg%3E") center / 100% 100% no-repeat; align-self: flex-end; }
+.worry__list li:nth-child(3) { background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 100' preserveAspectRatio='none'%3E%3Cpath fill='%23c5e3e7' d='M52 2c60 3 136-1 198 3 29 0 47 19 47 46 0 30-18 48-48 46-60-2-138 3-198-1C21 97 3 79 3 51 3 21 22 1 52 2z'/%3E%3C/svg%3E") center / 100% 100% no-repeat; align-self: flex-end; margin-right: .6rem; }
+.worry__list li:nth-child(4) { padding-left: 2.4rem; padding-right: 2.4rem; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 100' preserveAspectRatio='none'%3E%3Cpath fill='%23fbfbf8' d='M48 3c66-3 138 4 204-1 29-1 46 21 45 49 1 28-17 47-46 46-66 3-138-4-204 1C18 99 2 78 3 50 2 22 19 4 48 3z'/%3E%3C/svg%3E") center / 100% 100% no-repeat; }
+.worry__list li:nth-child(5) { padding-left: 3rem; padding-right: 3rem; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 100' preserveAspectRatio='none'%3E%3Cpath fill='%23c5e3e7' d='M51 4c62-4 138 3 200-1 30 0 47 20 46 48 1 29-16 47-46 46-62 4-138-3-200 1C21 99 3 79 3 50 3 22 21 3 51 4z'/%3E%3C/svg%3E") center / 100% 100% no-repeat; margin-left: .4rem; }
+.worry__list em {
+  padding-bottom: .1rem;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 8' preserveAspectRatio='none'%3E%3Cpath d='M1 5C18 2 30 7 48 4s34-3 51 0' fill='none' stroke='%23ffda3f' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E") left bottom / 100% .7rem no-repeat;
+}
+/* 悩むママ（吹き出しの後ろからのぞかせる） */
+.worry__mama { position: absolute; z-index: -1; max-width: none; height: auto; }
+/* 体の下は吹き出しの後ろに隠す */
+.worry__mama--pony { right: -7.2rem; top: -.8rem; width: 9.4rem; }
+.worry__mama--bob { left: -7.6rem; top: -1.6rem; width: 9.6rem; }
+/* 体を次の「そうはいっても」の1枚目のカードまでつなげる（下はカードに隠れる） */
+/* 吹き出しの幅が変わっても動かないよう、左端からの距離で固定する */
+.worry__mama--bun { left: 25rem; top: calc(100% - 4.6rem); width: 8.6rem; }
+
+/* =========================================================
+   そうはいっても
+   ========================================================= */
+.barrier { position: relative; margin-top: -1px; padding: 6.2rem 2rem 4.8rem; background: var(--aqua-box); text-align: center; }
+.barrier__label {
+  position: relative;
+  z-index: 2;
+  display: inline-block;
+  margin-right: 8rem;
+  padding: .5rem 1.6rem .7rem;
+  background: var(--teal-deep);
+  color: #fff;
+  font-family: var(--ff-head);
+  font-weight: 800;
+  font-size: 1.9rem;
+  line-height: 1.3;
+  letter-spacing: .06em;
+}
+.barrier__list { position: relative; z-index: 2; display: flex; flex-direction: column; gap: 1rem; margin-top: 1.4rem; }
+.barrier__list li {
+  padding: 1.8rem .6rem 2rem;
+  border-radius: .6rem;
+  background: #fff;
+  color: var(--brown-deep);
+  font-family: var(--ff-head);
+  font-weight: 800;
+  font-size: 1.75rem;
+  line-height: 1.75;
+  letter-spacing: .01em;
+  white-space: nowrap;
+}
+.barrier__list em {
+  color: var(--teal-deep);
+  font-size: 1.95rem;
+  text-decoration: underline;
+  text-decoration-thickness: .15rem;
+  text-underline-offset: .35rem;
+}
+
+/* =========================================================
+   共感（もやもや雲）
+   ========================================================= */
+.fog {
+  position: relative;
+  padding: 9rem 0 1.2rem;
+  background: linear-gradient(180deg, #a9afb3 0, #c9ced1 24%, #e4e6e6 58%, var(--base) 100%);
+  text-align: center;
+}
+/* 上辺のV字（前セクションの色が下へ食い込む） */
+.fog::before {
+  content: "";
+  position: absolute;
+  inset: -1px 0 auto 0;
+  height: 5.2rem;
+  background: var(--aqua-box);
+  clip-path: polygon(0 0, 100% 0, 50% 100%);
+  z-index: 1;
+}
+/* ハーフトーンのもや */
+.fog::after {
+  content: "";
+  position: absolute;
+  inset: 0 0 35% 0;
+  background: radial-gradient(circle, rgba(70, 76, 80, .75) .11rem, transparent .13rem) 0 0 / .45rem .45rem;
+  -webkit-mask-image: radial-gradient(90% 60% at 50% 62%, transparent 40%, #000 100%), linear-gradient(180deg, #000 30%, transparent 100%);
+          mask-image: radial-gradient(90% 60% at 50% 62%, transparent 40%, #000 100%), linear-gradient(180deg, #000 30%, transparent 100%);
+  -webkit-mask-composite: source-in;
+          mask-composite: intersect;
+}
+.fog__text {
+  position: relative;
+  z-index: 1;
+  width: 35rem;
+  margin: 0 auto;
+  padding: 4.4rem 0 2.8rem;
+  border-radius: 50%;
+  background: radial-gradient(closest-side, #fff 62%, rgba(255, 255, 255, 0) 100%);
+  color: var(--brown-deep);
+  font-family: var(--ff-head);
+  font-weight: 700;
+  font-size: 1.65rem;
+  line-height: 1.9;
+  letter-spacing: .02em;
+  white-space: nowrap;
+}
+.fog__text em {
+  color: var(--teal-deep);
+  font-size: 2.1rem;
+  font-weight: 800;
+  text-decoration: underline;
+  text-decoration-thickness: .15rem;
+  text-underline-offset: .4rem;
+}
+
+/* =========================================================
+   語り
+   ========================================================= */
+.story { padding: 0 2rem 5.2rem; background: var(--base); color: var(--brown-deep); }
+.story__center { text-align: center; line-height: 2.2; white-space: nowrap; }
+.story__center + .story__center { margin-top: 2.8rem; }
+.story__center .marker { padding: .25rem 0; font-size: 1.45rem; letter-spacing: 0; }
+
+.example { margin-top: 3.6rem; padding: 2rem 2rem 1rem; border-radius: 1rem; background: #fff; }
+.example__head {
+  display: flex;
+  align-items: center;
+  gap: .8rem;
+  padding: .3rem 1.2rem .4rem;
+  border-radius: .3rem;
+  background: var(--aqua);
+  font-size: 1.5rem;
+  line-height: 1.8;
+}
+.example__head i { width: 3.2rem; height: 1px; background: var(--brown-deep); }
+.example__list li {
+  position: relative;
+  padding: 1.6rem 0 1.6rem 1.5rem;
+  font-size: 1.6rem;
+  line-height: 1.9;
+  letter-spacing: .02em;
+}
+.example__list li::before { content: "・"; position: absolute; left: -.4rem; }
+.example__list li + li { border-top: 1px solid #c8c8c0; }
+.example__list em { color: var(--teal-deep); font-weight: 700; }
+
+/* =========================================================
+   結論メッセージ
+   ========================================================= */
+.message { position: relative; padding: 9.6rem 2rem 5.2rem; background: #fff; color: var(--brown-deep); }
+.message::before {
+  content: "";
+  position: absolute;
+  inset: -1px 0 auto 0;
+  height: 5.2rem;
+  background: var(--base);
+  clip-path: polygon(0 0, 100% 0, 50% 100%);
+}
+.message__key {
+  font-family: var(--ff-head);
+  font-weight: 700;
+  font-size: 1.7rem;
+  line-height: 2;
+  letter-spacing: .02em;
+  text-align: center;
+  white-space: nowrap;
+}
+.message__key + .message__key { margin-top: 2.6rem; }
+.message__key .marker { padding: .25rem .2rem; }
+.message__ask {
+  position: relative;
+  margin: 4rem -.4rem;
+  padding: 2.2rem 0 2.4rem;
+  border-radius: 1rem;
+  background: var(--aqua-box);
+  color: var(--teal-deep);
+  font-family: var(--ff-head);
+  font-weight: 800;
+  font-size: 1.8rem;
+  line-height: 1.9;
+  letter-spacing: .02em;
+  text-align: center;
+  white-space: nowrap;
+}
+.message__ask::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 100%;
+  margin-left: -1rem;
+  border: 1rem solid transparent;
+  border-top: 1.2rem solid var(--aqua-box);
+  border-bottom: 0;
+}
+.message__body { margin: 3.2rem 0; }
+.message__body:last-child { margin-bottom: 0; }
+.message__body em { color: var(--coral-text); font-weight: 700; }
+
+/* =========================================================
+   講師紹介
+   ========================================================= */
+.teacher { padding-bottom: 5.2rem; background: var(--base); color: var(--brown-deep); }
+.teacher__hero { position: relative; height: 33rem; overflow: hidden; background: #fff; }
+/* 人物を右に寄せ、左は白い余白にして名前を重ねる */
+.teacher__hero img { position: absolute; left: 25%; top: 0; width: 116%; max-width: none; }
+.teacher__hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, #fff 0, #fff 25%, rgba(255, 255, 255, .7) 40%, rgba(255, 255, 255, 0) 60%),
+    linear-gradient(0deg, var(--base) 0, rgba(248, 248, 244, 0) 28%);
+}
+.teacher__label {
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  top: 2.4rem;
+  padding: .9rem 3rem 1.1rem 2rem;
+  border-radius: 0 .3rem .3rem 0;
+  background: var(--teal-deep);
+  color: #fff;
+  font-family: var(--ff-head);
+  font-weight: 800;
+  font-size: 2.2rem;
+  line-height: 1.2;
+  letter-spacing: .08em;
+}
+.teacher__name { position: absolute; z-index: 1; left: 2rem; top: 10.4rem; white-space: nowrap; text-shadow: 0 0 .6rem #fff, 0 0 .6rem #fff, 0 0 1.2rem #fff; }
+.teacher__org { font-size: 1.25rem; line-height: 1.8; letter-spacing: .02em; }
+.teacher__kanji {
+  margin-top: .8rem;
+  font-family: var(--ff-head);
+  font-weight: 700;
+  font-size: 3.8rem;
+  line-height: 1.2;
+  letter-spacing: .04em;
+}
+.teacher__kana { margin-top: .4rem; font-size: 1.2rem; line-height: 1.6; letter-spacing: .2em; }
+
+.teacher__points {
+  position: relative;
+  z-index: 1;
+  margin: -5.6rem 2rem 0;
+  padding: 1.6rem 1.8rem 1.8rem;
+  border-radius: .6rem;
+  background: #fff;
+  box-shadow: 0 .2rem 1rem rgba(56, 33, 20, .06);
+}
+.teacher__points li { position: relative; padding-left: 1.4rem; font-size: 1.45rem; line-height: 1.8; letter-spacing: .02em; }
+.teacher__points li + li { margin-top: .6rem; }
+.teacher__points li::before { content: "・"; position: absolute; left: -.4rem; }
+.teacher__points b { color: var(--teal-deep); font-family: var(--ff-head); font-weight: 800; font-size: 1.9rem; line-height: 1; margin: 0 .1rem; }
+
+.teacher__body { margin: 3.2rem 2rem 0; }
+.teacher__body p + p { margin-top: 2.4rem; }
+.teacher__body em { color: var(--coral-text); font-weight: 700; }
+.teacher__body .marker { padding: .2rem 0; -webkit-box-decoration-break: clone; box-decoration-break: clone; }
+
+/* =========================================================
+   追加: 参加費無料バッジ / 日程カードの補足
+   ========================================================= */
+.fv-free {
+  position: absolute;
+  z-index: 2;
+  right: .5rem;
+  top: 17.9rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 6.7rem;
+  height: 6.7rem;
+  border-radius: 50%;
+  background: var(--coral-text);
+  color: #fff;
+  font-family: var(--ff-head);
+  font-weight: 800;
+  font-size: 1.5rem;
+  line-height: 1.15;
+  letter-spacing: .04em;
+  text-align: center;
+  transform: rotate(6deg);
+}
+.fv-free svg { width: 1.6rem; margin-bottom: .2rem; fill: var(--yellow); }
+
+.schedule-card__addr { margin-top: .2rem; font-family: var(--ff-body); font-weight: 400; font-size: 1.3rem; line-height: 1.6; }
+.schedule-card__fee { font-size: 1.7rem; padding-top: .2rem; }
+.schedule-card__fee b { color: var(--coral-text); font-size: 2.4rem; font-weight: 800; line-height: 1.2; margin-left: .4rem; }
+.schedule-card__note { margin-top: 1rem; font-size: 1.2rem; line-height: 1.6; text-align: center; }
+
+/* =========================================================
+   講師紹介（続き）: 資格 / 相談写真 / 経歴 / メディア
+   ========================================================= */
+/* 仮置き要素の目印（確定後に .is-tbd と .tbd-tag を外す） */
+.is-tbd { position: relative; outline: .2rem dashed var(--coral); outline-offset: -.2rem; }
+.tbd-tag {
+  position: absolute;
+  right: .6rem;
+  top: .6rem;
+  padding: .1rem .8rem .2rem;
+  border-radius: 99rem;
+  background: var(--coral-text);
+  color: #fff;
+  font-size: 1.05rem;
+  font-weight: 700;
+  line-height: 1.6;
+}
+
+.teacher__license { margin: 3.6rem 2rem 0; padding: 2.4rem 2rem 2.2rem; border-radius: .8rem; background: #fff; }
+.teacher__license-head {
+  color: var(--teal-deep);
+  font-family: var(--ff-head);
+  font-weight: 800;
+  font-size: 1.65rem;
+  line-height: 1.75;
+  letter-spacing: .02em;
+}
+.teacher__license-row { display: flex; align-items: center; gap: 1.6rem; margin-top: 1.6rem; }
+.teacher__license-logo {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 10rem;
+  height: 10rem;
+  border: 1px solid #c8c8c0;
+  border-radius: 50%;
+  color: #9a9a90;
+  font-size: 1.2rem;
+}
+
+.teacher__photo { display: block; width: calc(100% - 4rem); margin: 3.2rem 2rem 0; border-radius: .8rem; }
+
+.teacher__history {
+  width: calc(100% - 4rem);
+  margin: 3.2rem 2rem 0;
+  border: 1px solid #c8c8c0;
+  border-radius: .6rem;
+  border-collapse: separate;
+  border-spacing: 0;
+  overflow: hidden;
+  background: #fff;
+  font-size: 1.4rem;
+  line-height: 1.85;
+}
+.teacher__history th, .teacher__history td { padding: 1rem 1.4rem; vertical-align: top; text-align: left; font-weight: 400; }
+.teacher__history th { width: 8.6rem; border-right: 1px solid #c8c8c0; white-space: nowrap; }
+.teacher__history tr:nth-child(odd) th, .teacher__history tr:nth-child(odd) td { background: #ededea; }
+
+.teacher__media { display: flex; flex-direction: column; gap: 3.2rem; margin: 4.8rem 2rem 0; }
+.teacher__media li { position: relative; width: 25rem; }
+.teacher__media li.is-right { align-self: flex-end; }
+.teacher__media img { width: 100%; border-radius: .6rem; }
+.teacher__media-badge {
+  position: absolute;
+  z-index: 1;
+  left: -1.4rem;
+  top: -2.6rem;
+  display: grid;
+  place-items: center;
+  width: 8.2rem;
+  height: 8.2rem;
+  border-radius: 50%;
+  background: var(--teal);
+  color: #fff;
+  font-family: var(--ff-head);
+  font-weight: 800;
+  font-size: 1.75rem;
+  line-height: 1.25;
+  letter-spacing: .04em;
+  text-align: center;
+}
+.teacher__media li.is-right .teacher__media-badge { left: auto; right: -1.4rem; }
+.teacher__media-cap { margin-top: .8rem; font-weight: 700; font-size: 1.2rem; line-height: 1.6; letter-spacing: 0; text-align: center; white-space: nowrap; color: var(--brown-deep); }
+
+/* =========================================================
+   団体紹介（一般企業との違い）
+   ========================================================= */
+.org { padding: 5.2rem 2rem 5.6rem; background: #fff; color: var(--brown-deep); }
+.org__title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: .8rem;
+  font-family: var(--ff-head);
+  font-weight: 800;
+  font-size: 2.1rem;
+  line-height: 1.4;
+  letter-spacing: .06em;
+}
+.org__title b {
+  padding: .5rem 1rem .7rem;
+  border: .15rem solid var(--teal-deep);
+  color: var(--teal-deep);
+  font-size: 1.9rem;
+  font-weight: 800;
+  letter-spacing: .02em;
+  white-space: nowrap;
+}
+.org__logo { width: 22rem; margin: 1.2rem auto .4rem; }
+
+.org__here {
+  width: 50%;
+  margin: 3.2rem 0 .4rem auto;
+  color: var(--teal-deep);
+  font-family: var(--ff-hand);
+  font-size: 1.7rem;
+  line-height: 1.4;
+  text-align: center;
+  white-space: nowrap;
+  -webkit-text-stroke: .03em currentColor;
+}
+.org__compare { display: grid; grid-template-columns: 1fr 1fr; gap: 1.4rem; }
+.org__col { display: flex; flex-direction: column; align-items: center; }
+.org__circle {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 14rem;
+  height: 14rem;
+  border-radius: 50%;
+  background: #e2e2dc;
+  font-family: var(--ff-head);
+  font-weight: 800;
+  font-size: 2.2rem;
+  line-height: 1.3;
+  letter-spacing: .04em;
+  text-align: center;
+}
+.org__circle small { margin-bottom: .3rem; font-size: 1.1rem; font-weight: 700; line-height: 1.45; letter-spacing: 0; }
+.org__box {
+  position: relative;
+  flex: 1;
+  margin-top: 2rem;
+  padding: 1.6rem 1.3rem 1.8rem;
+  border-radius: .5rem;
+  background: #e2e2dc;
+  font-size: 1.3rem;
+  line-height: 1.9;
+  letter-spacing: .02em;
+}
+.org__box::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 100%;
+  margin-left: -.9rem;
+  border: .9rem solid transparent;
+  border-bottom: 1.2rem solid #e2e2dc;
+  border-top: 0;
+}
+.org__box-head { margin-bottom: .8rem; font-family: var(--ff-head); font-weight: 800; font-size: 1.4rem; line-height: 1.6; }
+.org__col--us .org__circle { background: var(--teal); color: var(--yellow); }
+.org__col--us .org__circle small { color: #fff; }
+.org__col--us .org__box { background: #c5e3e7; }
+.org__col--us .org__box::before { border-bottom-color: #c5e3e7; }
+.org__col--us .org__box-head { color: var(--teal-deep); }
+
+.org__body { margin-top: 3.2rem; color: var(--brown-deep); }
+.org__body p + p { margin-top: 2.4rem; }
+.org__body em { color: var(--coral-text); font-weight: 700; }
+.org__body .marker { padding: .2rem 0; -webkit-box-decoration-break: clone; box-decoration-break: clone; }
+.org__photos { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 3.2rem; }
+.org__photos img { width: 100%; border-radius: .6rem; }
+
+/* =========================================================
+   セミナー内容
+   ========================================================= */
+.program { padding-bottom: 5.2rem; background: #fff; color: var(--brown-deep); }
+.program__hero { position: relative; height: 19rem; overflow: hidden; }
+.program__hero img { width: 100%; height: 100%; object-fit: cover; object-position: center 35%; }
+.program__hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(255, 255, 255, .25) 0, rgba(255, 255, 255, .55) 55%, #fff 100%);
+}
+.program__label {
+  position: absolute;
+  z-index: 1;
+  left: 3.6rem;
+  right: 2rem;
+  top: 5.6rem;
+  padding: 1.2rem 1rem 1.4rem 3.2rem;
+  border-radius: .6rem;
+  background: #fff;
+  box-shadow: 0 .2rem 1rem rgba(56, 33, 20, .1);
+  font-family: var(--ff-head);
+  font-weight: 800;
+  font-size: 3.2rem;
+  line-height: 1.25;
+  letter-spacing: .06em;
+  text-align: center;
+  white-space: nowrap;
+}
+.program__label small { display: block; color: var(--coral-text); font-size: 1.6rem; font-weight: 800; letter-spacing: .02em; }
+.program__mascot { position: absolute; left: -3.4rem; bottom: -.6rem; width: 6.6rem; transform: rotate(-6deg); }
+
+.program__lead {
+  position: relative;
+  width: fit-content;
+  margin: 1.2rem auto 0;
+  padding: 0 3rem;
+  font-family: var(--ff-hand);
+  font-size: 2rem;
+  line-height: 1.6;
+  letter-spacing: .06em;
+  white-space: nowrap;
+  -webkit-text-stroke: .03em currentColor;
+}
+.program__lead b { font-family: var(--ff-num); font-weight: 600; font-size: 2.6rem; color: var(--coral-text); letter-spacing: 0; -webkit-text-stroke: 0; margin-right: .2rem; }
+.program__lead::before, .program__lead::after { content: ""; position: absolute; bottom: .4rem; width: 1px; height: 2.8rem; background: var(--brown-deep); }
+.program__lead::before { left: 1.2rem; transform: rotate(-30deg); }
+.program__lead::after { right: 1.2rem; transform: rotate(30deg); }
+
+.program__list {
+  margin: 1.6rem 2rem 0;
+  padding: .8rem 1.8rem;
+  border: 1px solid #c8c8c0;
+  border-radius: .6rem;
+  list-style: none;
+  counter-reset: program 2;
+}
+.program__list li {
+  position: relative;
+  padding: 1.3rem 0 1.3rem 3.5rem;
+  font-size: 1.4rem;
+  line-height: 1.75;
+  letter-spacing: 0;
+  counter-increment: program;
+}
+.program__list li span { display: inline-block; }
+.program__list li + li { border-top: 1px dashed #b9b9b0; }
+.program__list li::before {
+  content: counter(program);
+  position: absolute;
+  left: 0;
+  top: 1.3rem;
+  display: grid;
+  place-items: center;
+  width: 2.7rem;
+  height: 2.7rem;
+  border-radius: 50%;
+  background: var(--teal);
+  color: #fff;
+  font-family: var(--ff-num);
+  font-weight: 500;
+  font-size: 1.45rem;
+  line-height: 1;
+  letter-spacing: 0;
+}
+
+/* =========================================================
+   クロージング
+   ========================================================= */
+.closing { background: #fff; }
+.closing__title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 4.4rem;
+  color: var(--coral-text);
+  font-family: var(--ff-head);
+  font-weight: 800;
+  font-size: 4.2rem;
+  line-height: 1.3;
+  letter-spacing: .02em;
+  white-space: nowrap;
+}
+.closing__title small { font-size: 2.4rem; font-weight: 800; }
+.closing__title i { font-size: .7em; letter-spacing: -.1em; }
+.closing__title i { position: relative; }
+.closing__title span { font-size: 2.9rem; letter-spacing: 0; line-height: 1.5; }
+.closing__title span i:first-child { top: -.4em; margin-left: -.3em; }
+.closing__title span i:last-child { top: .06em; margin-right: -.3em; }
+.closing__title em { margin-top: 1rem; font-size: 1.7rem; font-weight: 700; letter-spacing: .04em; }
+.closing__free { display: flex; align-items: flex-end; justify-content: center; gap: 1rem; margin-top: 2.8rem; }
+.closing__mama { width: 10.4rem; }
+.closing__mama img { display: block; width: 100%; }
+.closing__badge {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 11.6rem;
+  height: 11.6rem;
+  margin-bottom: 1.6rem;
+  border-radius: 50%;
+  background: var(--coral-text);
+  color: #fff;
+  font-family: var(--ff-head);
+  font-weight: 800;
+  font-size: 2.7rem;
+  line-height: 1.2;
+  letter-spacing: .04em;
+  text-align: center;
+}
+.closing__badge svg { width: 2.4rem; margin-bottom: .3rem; fill: var(--yellow); }
+.closing__benefit { padding: 1.2rem 1.2rem 3.6rem; background: var(--aqua-box); }
+.closing__benefit .benefit__box { padding-bottom: 0; }
+
+/* =========================================================
+   PS
+   ========================================================= */
+.ps { padding: 0; background: var(--base); color: var(--brown-deep); text-align: center; }
+/* 便箋はフチを切り落とし、セクション幅いっぱいに敷く */
+.ps__image { display: block; width: 100%; }
+.ps .btn-cta { margin-top: 3.6rem; }
+.ps__limit { margin-top: 1.6rem; color: var(--coral-text); font-family: var(--ff-head); font-weight: 800; font-size: 1.5rem; line-height: 1.4; }
+.ps__limit b { font-family: var(--ff-num); font-weight: 600; font-size: 2.2rem; margin: 0 .1rem; letter-spacing: 0; }
+
+/* =========================================================
+   フッター
+   ========================================================= */
+.footer { padding: 5.2rem 2rem 0; background: #fff; color: var(--brown-deep); text-align: center; }
+.footer__logo { width: 23rem; margin: 0 auto; }
+.footer__org { margin-top: 2rem; font-family: var(--ff-head); font-weight: 800; font-size: 1.7rem; line-height: 1.6; }
+.footer__addr { margin-top: 1.6rem; font-style: normal; font-size: 1.45rem; line-height: 2; }
+.footer__addr a { color: inherit; text-decoration: none; }
+.footer__addr small { font-size: 1.15rem; }
+.footer__links { margin-top: 3.2rem; font-size: 1.45rem; line-height: 2.2; }
+.footer__links a { color: inherit; text-decoration: none; border-bottom: 1px solid transparent; }
+.footer__links a:hover { border-bottom-color: currentColor; }
+.footer__copy {
+  margin: 4rem -2rem 0;
+  padding: 1.4rem 0 1.6rem;
+  border-top: 1px solid #c8c8c0;
+  font-family: var(--ff-num);
+  font-size: 1.2rem;
+  letter-spacing: .04em;
+}
+
+/* =========================================================
+   追従CTA
+   ========================================================= */
+.float-cta {
+  position: fixed;
+  z-index: 50;
+  right: calc((100vw - var(--col)) / 2 + 1.2rem);
+  bottom: 7rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 10.4rem;
+  height: 10.4rem;
+  border-radius: 50%;
+  background: var(--yellow);
+  box-shadow: 0 .5rem 0 var(--yellow-shade), 0 .8rem 1.6rem rgba(56, 33, 20, .22);
+  color: var(--brown-deep);
+  font-family: var(--ff-head);
+  font-weight: 800;
+  font-size: 1.75rem;
+  line-height: 1.25;
+  letter-spacing: .02em;
+  text-align: center;
+  text-decoration: none;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(1.2rem);
+  transition: opacity .4s ease, transform .4s ease, visibility 0s linear .4s;
+}
+.float-cta.is-show { opacity: 1; visibility: visible; transform: none; transition: opacity .4s ease, transform .4s ease, visibility 0s; }
+.float-cta small {
+  margin-bottom: .4rem;
+  padding: .1rem .8rem .2rem;
+  border-radius: 99rem;
+  background: var(--coral-text);
+  color: #fff;
+  font-size: 1.05rem;
+  font-weight: 700;
+  line-height: 1.5;
+}
+.float-cta:active { transform: translateY(.3rem); box-shadow: 0 .2rem 0 var(--yellow-shade); }
+@media (prefers-reduced-motion: reduce) { .float-cta { transition: none; } }
+
+/* =========================================================
+   トップへ戻る
+   ========================================================= */
+.to-top {
+  position: fixed;
+  z-index: 50;
+  right: calc((100vw - var(--col)) / 2 + 1.2rem);
+  bottom: 1.6rem;
+  display: grid;
+  place-items: center;
+  width: 4.4rem;
+  height: 4.4rem;
+  border-radius: .8rem;
+  background: var(--teal-deep);
+  box-shadow: 0 .3rem .8rem rgba(56, 33, 20, .2);
+  color: #fff;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity .3s ease, visibility 0s linear .3s;
+}
+.to-top.is-show { opacity: .92; visibility: visible; transition: opacity .3s ease, visibility 0s; }
+.to-top svg { width: 2.2rem; height: 2.2rem; }
+@media (prefers-reduced-motion: reduce) { .to-top { transition: none; } }
+
+/* 結論メッセージ内の親子写真（3枚横並び） */
+.message__photos { display: grid; grid-template-columns: repeat(3, 1fr); gap: .4rem; margin: 3.6rem -.4rem 3.6rem; }
+.message__photos img { width: 100%; border-radius: .4rem; }
+
+/* 団体紹介の集合写真 */
+.org__group { margin: 2.4rem 0 0; border-radius: .8rem; overflow: hidden; }
+.org__group img { width: 100%; }
+
+/* セミナー内容: ①②は「何を学べるか」のチェック枠 */
+.program__checks { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; margin: 4.4rem 2rem 0; }
+.program__checks li {
+  position: relative;
+  padding: 2.8rem .6rem 1.8rem;
+  border: .15rem solid var(--teal-deep);
+  border-radius: .6rem;
+  background: #fff;
+  text-align: center;
+}
+.program__check {
+  position: absolute;
+  left: 50%;
+  top: -1.9rem;
+  display: grid;
+  place-items: center;
+  width: 3.8rem;
+  height: 3.8rem;
+  margin-left: -1.9rem;
+  border-radius: 50%;
+  background: var(--teal-deep);
+}
+.program__check svg { width: 2.2rem; height: 2.2rem; }
+.program__checks small {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: .4rem;
+  color: var(--teal-deep);
+  font-family: var(--ff-head);
+  font-weight: 700;
+  font-size: 1.1rem;
+  line-height: 1.4;
+  letter-spacing: 0;
+  white-space: nowrap;
+}
+.program__checks small b {
+  display: grid;
+  place-items: center;
+  width: 1.8rem;
+  height: 1.8rem;
+  border-radius: 50%;
+  background: var(--teal);
+  color: #fff;
+  font-family: var(--ff-num);
+  font-weight: 500;
+  font-size: 1.1rem;
+}
+.program__checks p { margin-top: .8rem; font-family: var(--ff-head); font-weight: 700; font-size: 1.5rem; line-height: 1.75; letter-spacing: 0; white-space: nowrap; }
+.program__checks em { color: var(--coral-text); }
+
+/* 申し込み後の流れ（2回目のオファーのみ） */
+.flow { margin-top: 3.2rem; text-align: left; }
+.flow__title {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  color: #fff;
+  font-family: var(--ff-head);
+  font-weight: 800;
+  font-size: 1.8rem;
+  line-height: 1.4;
+  letter-spacing: .06em;
+  white-space: nowrap;
+}
+.flow__title::before, .flow__title::after { content: ""; flex: 1; height: 1px; background: rgba(255, 255, 255, .6); }
+.flow__list { margin: 1.6rem 0 0; padding: 0; list-style: none; counter-reset: flow; }
+.flow__list li {
+  position: relative;
+  padding: 1.4rem 1.6rem 1.5rem 5.4rem;
+  border-radius: .8rem;
+  background: #fff;
+  font-size: 1.25rem;
+  line-height: 1.75;
+  letter-spacing: .02em;
+  counter-increment: flow;
+}
+.flow__list li + li { margin-top: 2rem; }
+.flow__list li + li::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: -1.6rem;
+  margin-left: -.8rem;
+  border: .8rem solid transparent;
+  border-top: 1rem solid var(--yellow);
+  border-bottom: 0;
+}
+.flow__list li::after {
+  content: counter(flow);
+  position: absolute;
+  left: 1.4rem;
+  top: 1.5rem;
+  display: grid;
+  place-items: center;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  background: var(--yellow);
+  color: var(--brown-deep);
+  font-family: var(--ff-num);
+  font-weight: 600;
+  font-size: 1.6rem;
+  line-height: 1;
+}
+.flow__list b { display: block; margin-bottom: .2rem; color: var(--brown-deep); font-family: var(--ff-head); font-weight: 800; font-size: 1.5rem; line-height: 1.6; }
+.flow__note { margin-top: 1.4rem; color: #fff; font-size: 1.15rem; line-height: 1.7; }
+
+/* 共感ブロックの直後に入れる写真（透過なし） */
+/* 左右の余白をなくし、ページ幅いっぱいの帯にする */
+.story__photo { display: block; width: calc(100% + 4rem); max-width: none; margin: 0 -2rem 3.6rem; }

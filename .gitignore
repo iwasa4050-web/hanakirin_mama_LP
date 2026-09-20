@@ -1,0 +1,14 @@
+.DS_Store
+.claude/
+
+# 内部用メモ（公開しない）
+参考LP分析.md
+講師情報リサーチ.md
+
+# 支給された元画像（LPの表示には未使用）
+/*.png
+
+# 未使用の画像
+images/benefit-consult.jpg
+images/fv-teacher.webp
+images/teacher-consult.jpg
