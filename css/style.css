@@ -593,9 +593,35 @@ em, i { font-style: normal; }
 
 .voice-card { position: relative; padding: 2.8rem 2rem 2.6rem; border-radius: 1rem; background: #fff; }
 .voice-card + .voice-card { margin-top: 6.4rem; }
-/* 円から頭が少し出て、挙げた手が円の外にのぞくイラスト（円・切り抜きはSVG側で処理） */
-.voice-card__illust { position: absolute; right: .6rem; top: -8.4rem; width: 16rem; pointer-events: none; }
-.voice-card__illust svg { width: 100%; overflow: visible; }
+/* グレーの円から頭が少し出るイラスト。上半分はそのまま見せ、下半分だけ円形に切り抜く */
+.voice-card__illust {
+  --r: 5.5rem;
+  position: absolute;
+  right: 1.6rem;
+  top: -5.8rem;
+  width: calc(var(--r) * 2);
+  height: 12.6rem;
+  pointer-events: none;
+  -webkit-mask:
+    linear-gradient(#000, #000) top / 100% calc(100% - var(--r)) no-repeat,
+    radial-gradient(circle at 50% calc(100% - var(--r)), #000 calc(var(--r) - .5px), transparent var(--r));
+          mask:
+    linear-gradient(#000, #000) top / 100% calc(100% - var(--r)) no-repeat,
+    radial-gradient(circle at 50% calc(100% - var(--r)), #000 calc(var(--r) - .5px), transparent var(--r));
+}
+.voice-card__illust::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: #ecece6;
+}
+.voice-card__illust img { position: absolute; left: 50%; top: 0; height: 118%; width: auto; max-width: none; transform: translateX(-50%); }
+/* 3枚目は顔のアップで横幅が広いので、円の幅に収まる大きさに縮める */
+.voice-card:last-child .voice-card__illust img { top: .5rem; height: 96%; }
 .voice-card__who {
   display: flex;
   flex-wrap: wrap;
@@ -621,10 +647,11 @@ em, i { font-style: normal; }
   color: var(--brown-deep);
   font-family: var(--ff-head);
   font-weight: 700;
-  font-size: 1.65rem;
-  line-height: 1.8;
-  letter-spacing: .02em;
+  font-size: 1.6rem;
+  line-height: 1.85;
+  letter-spacing: 0;
 }
+.voice-card__lead .nb { display: inline-block; }
 .voice-card__lead .marker { padding: .15rem 0; -webkit-box-decoration-break: clone; box-decoration-break: clone; }
 .voice-card__lead::after {
   content: "";
@@ -788,7 +815,7 @@ em, i { font-style: normal; }
 .worry__list li:nth-child(2) { background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 100' preserveAspectRatio='none'%3E%3Cpath fill='%23fbfbf8' d='M47 4c64 4 140-4 204 0 30-1 48 19 46 47 2 29-15 47-45 46-64-4-140 4-204 0C18 98 1 77 3 49 1 21 18 3 47 4z'/%3E%3C/svg%3E") center / 100% 100% no-repeat; align-self: flex-end; }
 .worry__list li:nth-child(3) { background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 100' preserveAspectRatio='none'%3E%3Cpath fill='%23c5e3e7' d='M52 2c60 3 136-1 198 3 29 0 47 19 47 46 0 30-18 48-48 46-60-2-138 3-198-1C21 97 3 79 3 51 3 21 22 1 52 2z'/%3E%3C/svg%3E") center / 100% 100% no-repeat; align-self: flex-end; margin-right: .6rem; }
 .worry__list li:nth-child(4) { padding-left: 2.4rem; padding-right: 2.4rem; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 100' preserveAspectRatio='none'%3E%3Cpath fill='%23fbfbf8' d='M48 3c66-3 138 4 204-1 29-1 46 21 45 49 1 28-17 47-46 46-66 3-138-4-204 1C18 99 2 78 3 50 2 22 19 4 48 3z'/%3E%3C/svg%3E") center / 100% 100% no-repeat; }
-.worry__list li:nth-child(5) { padding-left: 3rem; padding-right: 3rem; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 100' preserveAspectRatio='none'%3E%3Cpath fill='%23c5e3e7' d='M51 4c62-4 138 3 200-1 30 0 47 20 46 48 1 29-16 47-46 46-62 4-138-3-200 1C21 99 3 79 3 50 3 22 21 3 51 4z'/%3E%3C/svg%3E") center / 100% 100% no-repeat; margin-left: .4rem; }
+.worry__list li:nth-child(5) { padding-left: 4.6rem; padding-right: 4.6rem; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 100' preserveAspectRatio='none'%3E%3Cpath fill='%23c5e3e7' d='M51 4c62-4 138 3 200-1 30 0 47 20 46 48 1 29-16 47-46 46-62 4-138-3-200 1C21 99 3 79 3 50 3 22 21 3 51 4z'/%3E%3C/svg%3E") center / 100% 100% no-repeat; margin-left: .4rem; }
 .worry__list em {
   padding-bottom: .1rem;
   background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 8' preserveAspectRatio='none'%3E%3Cpath d='M1 5C18 2 30 7 48 4s34-3 51 0' fill='none' stroke='%23ffda3f' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E") left bottom / 100% .7rem no-repeat;
@@ -900,9 +927,9 @@ em, i { font-style: normal; }
    語り
    ========================================================= */
 .story { padding: 0 2rem 5.2rem; background: var(--base); color: var(--brown-deep); }
-.story__center { text-align: center; line-height: 2.2; white-space: nowrap; }
+.story__center { text-align: center; font-size: 1.55rem; line-height: 2.15; letter-spacing: .02em; white-space: nowrap; }
 .story__center + .story__center { margin-top: 2.8rem; }
-.story__center .marker { padding: .25rem 0; font-size: 1.45rem; letter-spacing: 0; }
+.story__center .marker { padding: .25rem 0; font-size: 1.55rem; letter-spacing: 0; }
 
 .example { margin-top: 3.6rem; padding: 2rem 2rem 1rem; border-radius: 1rem; background: #fff; }
 .example__head {
