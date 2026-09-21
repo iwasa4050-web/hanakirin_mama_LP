@@ -3,13 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
 <title>ママのための『親の役割ってなぁ〜に？』ママと子どもの幸せ秘密のレシピ｜はなきりん</title>
 <meta name="description" content="講師歴25年以上。参加費無料。子育てを行う上で一番大切なことを大公開。ママのための『親の役割ってなぁ〜に？』ママと子どもの幸せ秘密のレシピ。">
 <link rel="icon" type="image/png" href="images/favicon.png">
 <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=M+PLUS+1p:wght@500;700;800&family=Noto+Sans+JP:wght@400;500;700&family=Poppins:wght@500;600&family=Zen+Kurenaido&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=M+PLUS+1p:wght@500;700;800&family=Noto+Sans+JP:wght@400;500;700&family=Poppins:wght@500;600&family=Zen+Kurenaido&family=Shippori+Mincho:wght@500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -74,7 +75,7 @@
 
       <div class="fv-authority">
         <p class="fv-authority__bubble">講師歴<br><b>25</b>年以上！</p>
-        <p class="fv-authority__text">子育てを行う上で<br>一番大切なことを<br>大公開！</p>
+        <p class="fv-authority__text">子育てを行う上で<br>一番大切なことを大公開！</p>
       </div>
 
       <h1 class="fv-title">
@@ -95,7 +96,7 @@
       <p>子育てに悩むママさんから<br>相談を受けて驚いたこと。<br>感じたこと。</p>
       <p class="fv-lead__pause">それは、、、</p>
       <p class="fv-lead__key"><span class="marker">親の役割を意外と知らない</span><span class="fv-lead__rest">ということ</span></p>
-      <p>今日からやりたくなる内容を盛り込んで<br>お届けする<strong><b>180</b>分</strong></p>
+      <p class="fv-lead__last">今日からやりたくなる内容を盛り込んで<br>あっという間の<strong><b>180</b>分</strong>をお届けします</p>
     </div>
 
     <p class="fv-chosen"><em><b>30</b>歳〜<b>47</b>歳</em>のママさんに選ばれています</p>
@@ -633,12 +634,21 @@
 
   <!-- ============ PS ============ -->
   <section class="ps">
-    <img class="ps__image" src="images/ps.webp" width="1000" height="1265" loading="lazy"
-         alt="P.S. 子どもが産まれて気づけば、生活の中心が子どもになって子育てに悩んでいるあなたこそ、そろそろ本気で自分について考えてみませんか？ たった180分の学びで、これからの毎日がドラマティックに変わります">
+    <div class="ps__inner">
+      <p class="ps__head">P.S.</p>
+      <p>子どもが産まれて気づけば、<br>生活の中心が子どもになって<br>子育てに悩んでいるあなたこそ</p>
+      <p class="ps__key">そろそろ本気で<br><em>自分について考えてみませんか？</em></p>
+      <p>たった<b>180</b>分の学びで<br>これからの毎日が</p>
+      <p class="ps__last">ドラマティックに変わります</p>
+    </div>
   </section>
 
   <!-- ============ フッター ============ -->
   <footer class="footer">
+    <a class="footer__top" href="#top">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 15l7-7 7 7" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      ページの上部へ
+    </a>
     <img class="footer__logo" src="images/logo-h.png" alt="はなきりん" loading="lazy">
     <p class="footer__org">一般社団法人暮らし振興支援機構</p>
     <address class="footer__addr">
@@ -662,10 +672,6 @@
   <span>セミナーに<br>参加する</span>
 </a>
 
-<!-- トップへ戻る -->
-<a class="to-top" href="#top" aria-label="ページの先頭へ戻る">
-  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 15l7-7 7 7" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-</a>
 
 <script>
 (function () {
@@ -680,18 +686,27 @@
     update();
   }, { rootMargin: '-10% 0px -10% 0px' });
   document.querySelectorAll('.schedule').forEach(function (el) { io.observe(el); });
-  var top = document.querySelector('.to-top');
   function onScroll() {
     scrolled = window.scrollY > 240;
-    if (top) top.classList.toggle('is-show', window.scrollY > 600);
     update();
   }
+  // PS: 幕上げアニメーション（画面に入ったら1回だけ再生）
+  var ps = document.querySelector('.ps');
+  if (ps && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    ps.classList.add('is-ready');
+    var psIO = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { ps.classList.add('is-open'); psIO.disconnect(); }
+      });
+    }, { threshold: 0.35 });
+    psIO.observe(ps);
+  }
   window.addEventListener('scroll', onScroll, { passive: true });
-  if (top) top.addEventListener('click', function (e) {
+  document.querySelectorAll('.footer__top').forEach(function (el) { el.addEventListener('click', function (e) {
     e.preventDefault();
     var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     window.scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' });
-  });
+  }); });
   onScroll();
 })();
 </script>
