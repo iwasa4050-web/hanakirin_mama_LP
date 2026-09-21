@@ -1071,6 +1071,23 @@ em, i { font-style: normal; }
 .teacher__points b { color: var(--teal-deep); font-family: var(--ff-head); font-weight: 800; font-size: 1.9rem; line-height: 1; margin: 0 .1rem; }
 
 .teacher__body { margin: 3.2rem 2rem 0; }
+.teacher__sub {
+  position: relative;
+  width: fit-content;
+  margin: 0 auto 2.4rem;
+  padding: 0 2.4rem;
+  color: var(--brown-deep);
+  font-family: var(--ff-hand);
+  font-weight: 400;
+  font-size: 1.7rem;
+  line-height: 1.6;
+  letter-spacing: 0;
+  white-space: nowrap;
+  -webkit-text-stroke: .03em currentColor;
+}
+.teacher__sub::before, .teacher__sub::after { content: ""; position: absolute; bottom: .3rem; width: 1px; height: 2.6rem; background: var(--brown-deep); }
+.teacher__sub::before { left: .8rem; transform: rotate(-30deg); }
+.teacher__sub::after { right: .8rem; transform: rotate(30deg); }
 .teacher__body p + p { margin-top: 2.4rem; }
 .teacher__body em { color: var(--coral-text); font-weight: 700; }
 .teacher__body .marker { padding: .2rem 0; -webkit-box-decoration-break: clone; box-decoration-break: clone; }
