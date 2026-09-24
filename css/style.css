@@ -94,14 +94,17 @@ em, i { font-style: normal; }
     radial-gradient(60% 22rem at 85% 8rem, rgba(255, 255, 255, .85), transparent 70%),
     linear-gradient(180deg, #cfe8ec 0, #dff0f3 18rem, #fff 40rem);
 }
-.fv-main { position: relative; height: 32.8rem; }
+.fv-main { position: relative; height: 36.5rem; }
 
 .fv-teacher {
   position: absolute;
-  top: -.5rem;
+  top: 1.7rem;
   right: -8.7rem;
   width: 36rem;
   max-width: none;
+  /* 下端の切れ目をセミナー写真で隠す。写真の隙間から見えないよう、最後の数%だけぼかす */
+  -webkit-mask-image: linear-gradient(180deg, #000 93%, transparent 100%);
+          mask-image: linear-gradient(180deg, #000 93%, transparent 100%);
 }
 
 /* 黄色帯の手書きテロップ */
@@ -164,7 +167,7 @@ em, i { font-style: normal; }
 .fv-authority__text {
   margin-left: .1rem;
   font-family: var(--ff-head);
-  font-weight: 800;
+  font-weight: 500;
   font-size: 1.4rem;
   line-height: 1.5;
   letter-spacing: 0;
@@ -177,7 +180,7 @@ em, i { font-style: normal; }
 /* タイトル（白ベタ抜き） */
 .fv-title {
   position: absolute;
-  z-index: 1;
+  z-index: 2; /* サブタイトルの末尾がセミナー写真の角より手前に来るようにする */
   top: 20.2rem;
   left: 1rem;
   display: flex;
@@ -199,11 +202,11 @@ em, i { font-style: normal; }
 .fv-title__main i { position: relative; }
 .fv-title__main i:first-child { margin-left: -.35em; top: -.4em; }
 .fv-title__main i:last-child { margin-right: -.25em; top: .06em; }
-.fv-title__sub { margin-top: .3rem; padding: .5rem .8rem .6rem; background: rgba(255, 255, 255, .92); font-size: 1.45rem; font-weight: 700; letter-spacing: .04em; }
+.fv-title__sub { margin-top: .5rem; padding: 0 .8rem; font-size: 1.3rem; font-weight: 700; line-height: 1.55; letter-spacing: 0; white-space: normal; /* ぼかしではなく、くっきりした白い輪郭線で服の上でも読めるようにする */ text-shadow: .12rem 0 0 #fff, -.12rem 0 0 #fff, 0 .12rem 0 #fff, 0 -.12rem 0 #fff, .09rem .09rem 0 #fff, -.09rem -.09rem 0 #fff, .09rem -.09rem 0 #fff, -.09rem .09rem 0 #fff; }
 
 /* ポラロイド風セミナー写真 */
 /* リード文の右に浮かせ、文章を左の空きに回り込ませる */
-.fv-photos { position: relative; z-index: 1; float: right; width: 15.6rem; height: 10.2rem; margin: -.4rem -1.6rem .4rem .6rem; }
+.fv-photos { position: relative; z-index: 1; float: right; width: 15.6rem; height: 10.2rem; margin: -1.9rem -1.6rem .4rem .6rem; }
 .fv-photos img {
   position: absolute;
   width: 11.2rem;
@@ -214,11 +217,12 @@ em, i { font-style: normal; }
 .fv-photos img:nth-child(2) { right: 0; top: 0; transform: rotate(6deg); }
 
 /* リード */
-.fv-lead { position: relative; padding: .6rem 2rem 0; font-size: 1.4rem; line-height: 1.9; color: var(--brown-deep); }
-.fv-lead__pause { margin-top: .8rem; letter-spacing: .2em; }
+.fv-lead { position: relative; padding: .6rem 2rem 0; font-size: 1.4rem; line-height: 1.65; color: var(--brown-deep); }
+.fv-lead__pause { margin-top: .6rem; letter-spacing: .2em; }
 .fv-lead::after { content: ""; display: block; clear: both; }
 .fv-lead__key {
-  margin: .4rem 0 .6rem;
+  clear: right; /* 右に浮かせた写真の下から始める（写真の横で折り返さないため） */
+  margin: .2rem 0 .3rem;
   font-family: var(--ff-head);
   font-weight: 700;
   font-size: 1.7rem;
@@ -831,7 +835,7 @@ em, i { font-style: normal; }
 .worry__mama--bob { left: -7.6rem; top: -1.6rem; width: 9.6rem; }
 /* 体を次の「そうはいっても」の1枚目のカードまでつなげる（下はカードに隠れる） */
 /* 吹き出しの幅が変わっても動かないよう、左端からの距離で固定する */
-.worry__mama--bun { left: 25rem; top: calc(100% - 4.6rem); width: 8.6rem; }
+.worry__mama--bun { left: 26.3rem; top: calc(100% + 1.9rem); width: 7.6rem; }
 
 /* =========================================================
    そうはいっても
@@ -842,7 +846,6 @@ em, i { font-style: normal; }
   top: -1.4rem;
   z-index: 2;
   display: inline-block;
-  margin-right: 8rem;
   padding: .5rem 1.6rem .7rem;
   background: var(--teal-deep);
   color: #fff;
@@ -1409,7 +1412,7 @@ em, i { font-style: normal; }
 .closing__title span { font-size: 2.9rem; letter-spacing: 0; line-height: 1.5; }
 .closing__title span i:first-child { top: -.4em; margin-left: -.3em; }
 .closing__title span i:last-child { top: .06em; margin-right: -.3em; }
-.closing__title em { margin-top: 1rem; font-size: 1.7rem; font-weight: 700; letter-spacing: .04em; }
+.closing__title em { margin-top: 1rem; font-size: 1.4rem; font-weight: 700; line-height: 1.6; letter-spacing: 0; }
 .closing__free { display: flex; align-items: flex-end; justify-content: center; gap: 1rem; margin-top: 2.8rem; }
 .closing__mama { width: 10.4rem; }
 .closing__mama img { display: block; width: 100%; }
