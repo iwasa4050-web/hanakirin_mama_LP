@@ -94,11 +94,11 @@ em, i { font-style: normal; }
     radial-gradient(60% 22rem at 85% 8rem, rgba(255, 255, 255, .85), transparent 70%),
     linear-gradient(180deg, #cfe8ec 0, #dff0f3 18rem, #fff 40rem);
 }
-.fv-main { position: relative; height: 36.5rem; }
+.fv-main { position: relative; height: 35.3rem; }
 
 .fv-teacher {
   position: absolute;
-  top: 1.7rem;
+  top: .5rem;
   right: -8.7rem;
   width: 36rem;
   max-width: none;
@@ -111,7 +111,7 @@ em, i { font-style: normal; }
 .fv-telop {
   position: absolute;
   z-index: 1;
-  top: 1.7rem;
+  top: 2.3rem;
   left: .7rem;
   display: flex;
   flex-direction: column;
@@ -127,14 +127,13 @@ em, i { font-style: normal; }
   -webkit-text-stroke: .035em currentColor;
 }
 .fv-telop span { padding: .5rem .8rem .55rem; background: var(--yellow); }
-.fv-telop span:nth-child(2) { margin-left: 1.4rem; }
-.fv-telop span:nth-child(3) { margin-left: 0; }
+.fv-telop span:nth-child(2) { margin-left: 1rem; }
 
 /* 権威バッジ */
 .fv-authority {
   position: absolute;
   z-index: 1;
-  top: 13.7rem;
+  top: 12.5rem;
   left: .3rem;
   display: flex;
   align-items: center;
@@ -181,7 +180,7 @@ em, i { font-style: normal; }
 .fv-title {
   position: absolute;
   z-index: 2; /* サブタイトルの末尾がセミナー写真の角より手前に来るようにする */
-  top: 20.2rem;
+  top: 19rem;
   left: 1rem;
   display: flex;
   flex-direction: column;
@@ -1102,7 +1101,7 @@ em, i { font-style: normal; }
   position: absolute;
   z-index: 2;
   right: .5rem;
-  top: 17.9rem;
+  top: 16.7rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -1689,3 +1688,85 @@ em, i { font-style: normal; }
 /* 共感ブロックの直後に入れる写真（透過なし） */
 /* 左右の余白をなくし、ページ幅いっぱいの帯にする */
 .story__photo { display: block; width: calc(100% + 4rem); max-width: none; margin: 0 -2rem 3.6rem; }
+
+/* =========================================================
+   申込前のプライバシーポリシー同意モーダル
+   ========================================================= */
+body.is-locked { overflow: hidden; }
+.consent {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.6rem;
+  background: rgba(56, 33, 20, .55);
+}
+.consent[hidden] { display: none; }
+.consent__panel {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: min(100%, 46rem);
+  max-height: 100%;
+  padding: 2.4rem 2rem 2rem;
+  border-radius: 1.2rem;
+  background: #fff;
+  box-shadow: 0 1rem 3rem rgba(0, 0, 0, .3);
+  color: var(--brown-deep);
+}
+.consent__close {
+  position: absolute;
+  right: .8rem;
+  top: .8rem;
+  width: 3.4rem;
+  height: 3.4rem;
+  border: 0;
+  border-radius: 50%;
+  background: #eeeee8;
+  color: var(--brown);
+  font-size: 2rem;
+  line-height: 1;
+  cursor: pointer;
+}
+.consent__title { font-family: var(--ff-head); font-weight: 800; font-size: 1.9rem; line-height: 1.4; letter-spacing: .04em; text-align: center; color: var(--teal-deep); }
+.consent__lead { margin-top: .4rem; font-size: 1.2rem; line-height: 1.6; text-align: center; }
+.consent__body {
+  flex: 1;
+  min-height: 0;
+  max-height: 34vh;
+  margin-top: 1.4rem;
+  padding: 1.2rem 1.4rem;
+  overflow-y: auto;
+  border: 1px solid #d8d8d0;
+  border-radius: .6rem;
+  background: var(--base);
+  font-size: 1.25rem;
+  line-height: 1.8;
+  letter-spacing: 0;
+  -webkit-overflow-scrolling: touch;
+}
+.consent__body h3 { margin: 1.4rem 0 .4rem; font-family: var(--ff-head); font-weight: 800; font-size: 1.3rem; color: var(--teal-deep); }
+.consent__body p + p { margin-top: .8rem; }
+.consent__end { margin-top: 1.4rem; text-align: center; color: var(--brown); }
+.consent__hint { margin-top: 1rem; color: var(--coral-text); font-weight: 700; font-size: 1.2rem; line-height: 1.6; text-align: center; }
+.consent__hint.is-done { color: var(--teal-deep); }
+.consent__check {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: .8rem;
+  margin-top: 1rem;
+  font-family: var(--ff-head);
+  font-weight: 700;
+  font-size: 1.45rem;
+  line-height: 1.5;
+  cursor: pointer;
+}
+.consent__check input { width: 2rem; height: 2rem; accent-color: var(--teal); cursor: pointer; }
+.consent__check input:disabled { cursor: not-allowed; }
+.consent__check input:disabled + span { color: #9a9a90; }
+.consent__go { margin-top: 1.4rem; min-height: 5.4rem; font-size: 1.7rem; }
+.consent__go.is-disabled { background: #d9d9d2; box-shadow: 0 .5rem 0 #b5b5ad; color: #8a8a80; pointer-events: none; }
+.consent__go.is-disabled::after { border-left-color: #8a8a80; }

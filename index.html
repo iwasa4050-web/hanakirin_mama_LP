@@ -11,7 +11,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=M+PLUS+1p:wght@500;700;800&family=Noto+Sans+JP:wght@400;500;700&family=Poppins:wght@500;600&family=Zen+Kurenaido&family=Shippori+Mincho:wght@500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/style.css?v=202609250958">
 </head>
 <body>
 <div class="lp" id="top">
@@ -68,9 +68,8 @@
       <img class="fv-teacher" src="images/fv-teacher2.webp" width="900" height="876" alt="講師 大田麻美" fetchpriority="high">
 
       <p class="fv-telop">
-        <span>自分で考えられるように</span>
-        <span>育って欲しいけど</span>
-        <span>これでいいのか分からへん！</span>
+        <span>ちゃんと育って欲しいけど</span>
+        <span>何をしたらいいのか分からへん！</span>
       </p>
 
       <div class="fv-authority">
@@ -675,6 +674,38 @@
 
 </div>
 
+<!-- 申込前のプライバシーポリシー同意（CVボタンを押すと開く） -->
+<div class="consent" id="consent" role="dialog" aria-modal="true" aria-labelledby="consent-title" hidden>
+  <div class="consent__panel">
+    <button type="button" class="consent__close" aria-label="閉じる">×</button>
+    <h2 class="consent__title" id="consent-title">プライバシーポリシー</h2>
+    <p class="consent__lead">お申し込みの前に、最後までお読みください。</p>
+    <div class="consent__body" tabindex="0">
+      <p>はなきりん（以下「当社」といいます。）は、個人情報の保護の重要性を認識しております。</p>
+      <p>当サイトにおいても、お問合せ、各種会員登録、ご意見等お客さまの個人情報を承る機会があり、その個人情報を保護することが当社にとって重要な社会的責務であると考えております。</p>
+      <p>当社は、当サイト上におけるプライバシーの考え方を以下のとおり定め、これに従って個人情報の漏洩、流用、改ざん等の防止に鋭意努力いたします。</p>
+      <h3>個人情報とは</h3>
+      <p>当社が当サイトを通じてお客さまから提供を受ける住所、氏名、電話番号、メールアドレス等 お客さま個人を識別できる情報またはお客さま固有の情報の事を指します。</p>
+      <h3>個人情報の収集</h3>
+      <p>当社が当サイトを通じてお客さまより収集した個人情報を収集する場合には、ページ内で予めその目的を明示し、その必要な限度においてこれを行います。</p>
+      <p>個人情報を当社に提供することを希望されない場合、お客さま自身のご判断により、その提供を拒むことができます。但し、この場合、当サイトにおいて個人情報が不可欠なサービスをご利用になれない場合があります。</p>
+      <h3>個人情報の利用</h3>
+      <p>お客さまにご提供いただきました個人情報につきましては、お客さまに明示致しました目的とそれに付随する業務において利用いたします。</p>
+      <p>付随する業務については、当社商品やセミナー等のご案内を含みます。こちらが必要ない場合はその旨お伝えいただければ、それ以降はおこなうことはありません。</p>
+      <h3>個人情報の第三者への非開示</h3>
+      <p>当社は、第三者への提供は原則として行いません。</p>
+      <p>ただし、ご提供いただいた個人情報を処理等の委託をするために、第三者に提供する必要がある場合、厳格な選定基準に従って、選定した業者と個人情報の保護に関わる契約を締結し、厳正な管理の下で業務を委託し、漏えい・再提供の防止などを図ります。</p>
+      <p class="consent__end">— 以上 —</p>
+    </div>
+    <p class="consent__hint">▼ 最後までスクロールすると同意できます</p>
+    <label class="consent__check">
+      <input type="checkbox" id="consent-agree" disabled>
+      <span>プライバシーポリシーに同意する</span>
+    </label>
+    <a class="btn-cta consent__go is-disabled" href="https://hanakirin.or.jp/entry/?post_id=27394" target="_blank" rel="noopener" aria-disabled="true">申込フォームへ進む</a>
+  </div>
+</div>
+
 <!-- 追従CTA（オファー付近ではフェードアウト） -->
 <a class="float-cta" href="https://hanakirin.or.jp/entry/?post_id=27394" target="_blank" rel="noopener" aria-label="セミナーに参加する（参加費無料）">
   <small>参加費無料</small>
@@ -711,6 +742,36 @@
     psIO.observe(ps);
   }
   window.addEventListener('scroll', onScroll, { passive: true });
+
+  // 申込前のプライバシーポリシー同意モーダル
+  var consent = document.getElementById('consent');
+  if (consent) {
+    var body = consent.querySelector('.consent__body');
+    var agree = document.getElementById('consent-agree');
+    var go = consent.querySelector('.consent__go');
+    var hint = consent.querySelector('.consent__hint');
+    var lastFocus = null;
+    function reachedEnd() { return body.scrollTop + body.clientHeight >= body.scrollHeight - 8; }
+    function checkScroll() {
+      if (reachedEnd()) { agree.disabled = false; hint.classList.add('is-done'); hint.textContent = '最後までお読みいただき、ありがとうございます'; }
+    }
+    function updateGo() { var ok = agree.checked; go.classList.toggle('is-disabled', !ok); go.setAttribute('aria-disabled', ok ? 'false' : 'true'); }
+    function openConsent(e) {
+      e.preventDefault(); lastFocus = e.currentTarget;
+      consent.hidden = false; document.body.classList.add('is-locked');
+      body.scrollTop = 0; agree.checked = false; agree.disabled = true;
+      hint.classList.remove('is-done'); hint.textContent = '▼ 最後までスクロールすると同意できます';
+      updateGo(); checkScroll(); consent.querySelector('.consent__close').focus();
+    }
+    function closeConsent() { consent.hidden = true; document.body.classList.remove('is-locked'); if (lastFocus) lastFocus.focus(); }
+    document.querySelectorAll('a.btn-cta:not(.consent__go), a.float-cta').forEach(function (el) { el.addEventListener('click', openConsent); });
+    body.addEventListener('scroll', checkScroll, { passive: true });
+    agree.addEventListener('change', updateGo);
+    go.addEventListener('click', function (e) { if (go.classList.contains('is-disabled')) { e.preventDefault(); return; } closeConsent(); });
+    consent.querySelector('.consent__close').addEventListener('click', closeConsent);
+    consent.addEventListener('click', function (e) { if (e.target === consent) closeConsent(); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !consent.hidden) closeConsent(); });
+  }
   document.querySelectorAll('.footer__top').forEach(function (el) { el.addEventListener('click', function (e) {
     e.preventDefault();
     var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
