@@ -94,7 +94,7 @@ em, i { font-style: normal; }
     radial-gradient(60% 22rem at 85% 8rem, rgba(255, 255, 255, .85), transparent 70%),
     linear-gradient(180deg, #cfe8ec 0, #dff0f3 18rem, #fff 40rem);
 }
-.fv-main { position: relative; height: 35.3rem; }
+.fv-main { position: relative; height: 31.6rem; }
 
 .fv-teacher {
   position: absolute;
@@ -203,33 +203,23 @@ em, i { font-style: normal; }
 .fv-title__main i:last-child { margin-right: -.25em; top: .06em; }
 .fv-title__sub { margin-top: .5rem; padding: 0 .8rem; font-size: 1.3rem; font-weight: 700; line-height: 1.55; letter-spacing: 0; white-space: normal; /* ぼかしではなく、くっきりした白い輪郭線で服の上でも読めるようにする */ text-shadow: .12rem 0 0 #fff, -.12rem 0 0 #fff, 0 .12rem 0 #fff, 0 -.12rem 0 #fff, .09rem .09rem 0 #fff, -.09rem -.09rem 0 #fff, .09rem -.09rem 0 #fff, -.09rem .09rem 0 #fff; }
 
-/* ポラロイド風セミナー写真 */
-/* リード文の右に浮かせ、文章を左の空きに回り込ませる */
-.fv-photos { position: relative; z-index: 1; float: right; width: 15.6rem; height: 10.2rem; margin: -1.9rem -1.6rem .4rem .6rem; }
+/* ポラロイド風セミナー写真（列幅の半分ほどを右寄せで、リード文の上に） */
+.fv-photos { position: relative; z-index: 1; width: 23.5rem; height: 13rem; margin: -2.4rem -1.2rem 1.2rem auto; }
 .fv-photos img {
   position: absolute;
-  width: 11.2rem;
+  width: 16rem;
   border: .3rem solid #fff;
   box-shadow: 0 .2rem .6rem rgba(56, 33, 20, .22);
 }
-.fv-photos img:nth-child(1) { left: -1rem; top: 1rem; transform: rotate(-5deg); }
-.fv-photos img:nth-child(2) { right: 0; top: 0; transform: rotate(6deg); }
+.fv-photos img:nth-child(1) { left: 0; top: 1.2rem; transform: rotate(-5deg); }
+.fv-photos img:nth-child(2) { right: 0; top: 0; transform: rotate(5deg); }
 
 /* リード */
-.fv-lead { position: relative; padding: .6rem 2rem 0; font-size: 1.4rem; line-height: 1.65; color: var(--brown-deep); }
-.fv-lead__pause { margin-top: .6rem; letter-spacing: .2em; }
+.fv-lead { position: relative; padding: .6rem 2rem 0; font-size: 1.4rem; font-weight: 500; line-height: 1.65; color: var(--brown-deep); }
+.fv-lead .marker { padding: .1rem .2rem; font-family: var(--ff-head); font-weight: 700; font-size: 1.95rem; letter-spacing: .02em; }
+.fv-lead__intro { letter-spacing: 0; white-space: nowrap; }
+.fv-lead__last { margin-top: .5rem; }
 .fv-lead::after { content: ""; display: block; clear: both; }
-.fv-lead__key {
-  clear: right; /* 右に浮かせた写真の下から始める（写真の横で折り返さないため） */
-  margin: .2rem 0 .3rem;
-  font-family: var(--ff-head);
-  font-weight: 700;
-  font-size: 1.7rem;
-  line-height: 1.6;
-  letter-spacing: .02em;
-}
-.fv-lead__key .marker { padding: .1rem .2rem; }
-.fv-lead__rest { margin-left: .2rem; font-family: var(--ff-body); font-weight: 400; font-size: 1.4rem; letter-spacing: .04em; }
 .fv-lead__last strong { margin-right: .3rem; }
 .fv-lead strong { margin-left: .3rem; color: var(--coral-text); font-family: var(--ff-head); font-weight: 800; font-size: 1.7rem; }
 .fv-lead strong b { font-family: var(--ff-num); font-size: 2.6rem; font-weight: 600; line-height: 1; letter-spacing: 0; }
@@ -673,11 +663,13 @@ em, i { font-style: normal; }
 .voice-card__body { margin-top: 2.4rem; }
 .voice-card__body p + p { margin-top: 1.4rem; }
 .voice-card__body em { color: var(--coral-text); font-weight: 700; }
+.voice-card__body .marker { padding: .15rem 0; -webkit-box-decoration-break: clone; box-decoration-break: clone; }
 
 /* =========================================================
    アンケート・満足度
    ========================================================= */
-.survey { position: relative; padding: .4rem 2rem 5.6rem; background: var(--aqua); }
+/* 上の声セクションと同じ色なので、継ぎ目に端数の白線が出ないよう1px重ねる */
+.survey { position: relative; margin-top: -1px; padding: calc(.4rem + 1px) 2rem 5.6rem; background: var(--aqua); }
 /* 見出しは2行とも上に膨らむアーチに沿わせる（SVG textPath） */
 .survey__title { margin: 0 -.6rem; line-height: 0; }
 .survey__title svg { width: 100%; height: auto; overflow: visible; }
@@ -693,16 +685,16 @@ em, i { font-style: normal; }
 
 /* 扇状に重ねたアンケート用紙 */
 .survey__sheets { position: relative; height: 21rem; margin: 1.6rem -1rem 0; }
-.survey__sheets svg {
+.survey__sheets img {
   position: absolute;
   width: 12.4rem;
   filter: drop-shadow(0 .3rem .5rem rgba(56, 33, 20, .18));
 }
-.survey__sheets svg:nth-child(1) { left: .4rem; top: 3.2rem; transform: rotate(-14deg); }
-.survey__sheets svg:nth-child(2) { right: .4rem; top: 3rem; transform: rotate(13deg); }
-.survey__sheets svg:nth-child(3) { left: 6.6rem; top: 1.2rem; transform: rotate(-6deg); }
-.survey__sheets svg:nth-child(4) { right: 6.4rem; top: 1rem; transform: rotate(7deg); }
-.survey__sheets svg:nth-child(5) { left: 50%; top: 0; margin-left: -6.2rem; transform: rotate(-1deg); }
+.survey__sheets img:nth-child(1) { left: .4rem; top: 3.2rem; transform: rotate(-14deg); }
+.survey__sheets img:nth-child(2) { right: .4rem; top: 3rem; transform: rotate(13deg); }
+.survey__sheets img:nth-child(3) { left: 6.6rem; top: 1.2rem; transform: rotate(-6deg); }
+.survey__sheets img:nth-child(4) { right: 6.4rem; top: 1rem; transform: rotate(7deg); }
+.survey__sheets img:nth-child(5) { left: 50%; top: 0; margin-left: -6.2rem; transform: rotate(-1deg); }
 
 .survey__ratings {
   position: relative;
@@ -986,35 +978,11 @@ em, i { font-style: normal; }
 .message__key + .message__key { margin-top: 2.6rem; }
 .message__key em { color: var(--coral-text); }
 .message__key .marker { padding: .25rem .2rem; }
-.message__ask {
-  position: relative;
-  margin: 4rem -.4rem;
-  padding: 2.2rem 0 2.4rem;
-  border-radius: 1rem;
-  background: var(--aqua-box);
-  color: var(--teal-deep);
-  font-family: var(--ff-head);
-  font-weight: 800;
-  font-size: 1.8rem;
-  line-height: 1.9;
-  letter-spacing: .02em;
-  text-align: center;
-  white-space: nowrap;
-}
-.message__ask::after {
-  content: "";
-  position: absolute;
-  left: 50%;
-  top: 100%;
-  margin-left: -1rem;
-  border: 1rem solid transparent;
-  border-top: 1.2rem solid var(--aqua-box);
-  border-bottom: 0;
-}
 .message__body { margin: 3.2rem 0; }
 .message__body + .message__body { margin-top: -1.4rem; }
 .message__body:last-child { margin-bottom: 0; }
 .message__body em { color: var(--coral-text); font-weight: 700; }
+.message__body .marker { padding: .15rem 0; -webkit-box-decoration-break: clone; box-decoration-break: clone; }
 
 /* =========================================================
    講師紹介
@@ -1127,45 +1095,8 @@ em, i { font-style: normal; }
 .schedule-card__note { margin-top: 1rem; font-size: 1.2rem; line-height: 1.6; text-align: center; }
 
 /* =========================================================
-   講師紹介（続き）: 資格 / 相談写真 / 経歴 / メディア
+   講師紹介（続き）: 相談写真 / 経歴 / メディア
    ========================================================= */
-/* 仮置き要素の目印（確定後に .is-tbd と .tbd-tag を外す） */
-.is-tbd { position: relative; outline: .2rem dashed var(--coral); outline-offset: -.2rem; }
-.tbd-tag {
-  position: absolute;
-  right: .6rem;
-  top: .6rem;
-  padding: .1rem .8rem .2rem;
-  border-radius: 99rem;
-  background: var(--coral-text);
-  color: #fff;
-  font-size: 1.05rem;
-  font-weight: 700;
-  line-height: 1.6;
-}
-
-.teacher__license { margin: 3.6rem 2rem 0; padding: 2.4rem 2rem 2.2rem; border-radius: .8rem; background: #fff; }
-.teacher__license-head {
-  color: var(--teal-deep);
-  font-family: var(--ff-head);
-  font-weight: 800;
-  font-size: 1.65rem;
-  line-height: 1.75;
-  letter-spacing: .02em;
-}
-.teacher__license-row { display: flex; align-items: center; gap: 1.6rem; margin-top: 1.6rem; }
-.teacher__license-logo {
-  flex: none;
-  display: grid;
-  place-items: center;
-  width: 10rem;
-  height: 10rem;
-  border: 1px solid #c8c8c0;
-  border-radius: 50%;
-  color: #9a9a90;
-  font-size: 1.2rem;
-}
-
 .teacher__photo { display: block; width: calc(100% - 4rem); margin: 3.2rem 2rem 0; border-radius: .8rem; }
 
 .teacher__history {
