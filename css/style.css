@@ -204,7 +204,7 @@ em, i { font-style: normal; }
 .fv-title__sub { margin-top: .5rem; padding: 0 .8rem; font-size: 1.3rem; font-weight: 700; line-height: 1.55; letter-spacing: 0; white-space: normal; /* ぼかしではなく、くっきりした白い輪郭線で服の上でも読めるようにする */ text-shadow: .12rem 0 0 #fff, -.12rem 0 0 #fff, 0 .12rem 0 #fff, 0 -.12rem 0 #fff, .09rem .09rem 0 #fff, -.09rem -.09rem 0 #fff, .09rem -.09rem 0 #fff, -.09rem .09rem 0 #fff; }
 
 /* ポラロイド風セミナー写真（列幅の半分ほどを右寄せで、リード文の上に） */
-.fv-photos { position: relative; z-index: 1; width: 23.5rem; height: 13rem; margin: -2.4rem -1.2rem 1.2rem auto; }
+.fv-photos { position: relative; z-index: 1; width: 23.5rem; height: 13rem; margin: -2.4rem -1.2rem 1.8rem auto; }
 .fv-photos img {
   position: absolute;
   width: 16rem;
@@ -215,10 +215,12 @@ em, i { font-style: normal; }
 .fv-photos img:nth-child(2) { right: 0; top: 0; transform: rotate(5deg); }
 
 /* リード */
-.fv-lead { position: relative; padding: .6rem 2rem 0; font-size: 1.4rem; font-weight: 500; line-height: 1.65; color: var(--brown-deep); }
-.fv-lead .marker { padding: .1rem .2rem; font-family: var(--ff-head); font-weight: 700; font-size: 1.95rem; letter-spacing: .02em; }
+.fv-lead { position: relative; padding: .6rem 2rem 0; font-size: 1.5rem; font-weight: 500; line-height: 1.7; color: var(--brown-deep); }
+.fv-lead .marker { padding: .1rem .2rem; font-family: var(--ff-head); font-weight: 700; font-size: 2.05rem; letter-spacing: .02em; }
 .fv-lead__intro { letter-spacing: 0; white-space: nowrap; }
 .fv-lead__last { margin-top: .5rem; }
+.fv-note { display: inline-block; width: 1.9rem; height: 2.2rem; margin-left: .3rem; vertical-align: -.5rem; fill: var(--coral-text); transform: rotate(10deg); }
+.fv-note__spark { fill: var(--yellow); }
 .fv-lead::after { content: ""; display: block; clear: both; }
 .fv-lead__last strong { margin-right: .3rem; }
 .fv-lead strong { margin-left: .3rem; color: var(--coral-text); font-family: var(--ff-head); font-weight: 800; font-size: 1.7rem; }
@@ -489,11 +491,15 @@ em, i { font-style: normal; }
 .schedule-card__area { font-family: var(--ff-body); font-weight: 400; font-size: 1.3rem; margin-left: -.5em; }
 .schedule-card__name {
   margin-top: 1.4rem;
-  padding-top: 1.2rem;
+  padding-top: 1.4rem;
   border-top: 1px dashed #c9d9dc;
-  font-size: 1.25rem;
-  line-height: 1.7;
-  letter-spacing: .02em;
+  font-family: var(--ff-head);
+  font-weight: 700;
+  font-size: 1.5rem;
+  line-height: 1.6;
+  letter-spacing: 0;
+  text-align: center;
+  white-space: nowrap;
 }
 .schedule-card__limit {
   margin-top: 1.4rem;
@@ -978,11 +984,23 @@ em, i { font-style: normal; }
 .message__key + .message__key { margin-top: 2.6rem; }
 .message__key em { color: var(--coral-text); }
 .message__key .marker { padding: .25rem .2rem; }
+.message__heading {
+  margin: 3.2rem 0 0;
+  color: var(--teal-deep);
+  font-family: var(--ff-head);
+  font-weight: 800;
+  font-size: 1.85rem;
+  line-height: 1.6;
+  letter-spacing: .02em;
+  text-align: center;
+}
 .message__body { margin: 3.2rem 0; }
+.message__heading + .message__body { margin-top: .8rem; }
 .message__body + .message__body { margin-top: -1.4rem; }
 .message__body:last-child { margin-bottom: 0; }
 .message__body em { color: var(--coral-text); font-weight: 700; }
 .message__body .marker { padding: .15rem 0; -webkit-box-decoration-break: clone; box-decoration-break: clone; }
+.message__body .marker--fit { font-size: 1.3rem; letter-spacing: -.01em; white-space: nowrap; }
 
 /* =========================================================
    講師紹介
@@ -1068,28 +1086,30 @@ em, i { font-style: normal; }
 .fv-free {
   position: absolute;
   z-index: 2;
-  right: .5rem;
-  top: 16.7rem;
+  left: -10.3rem;
+  top: 2.3rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 6.7rem;
-  height: 6.7rem;
+  width: 9.2rem;
+  height: 9.2rem;
+  margin: 0;
   border-radius: 50%;
   background: var(--coral-text);
   color: #fff;
   font-family: var(--ff-head);
   font-weight: 800;
-  font-size: 1.5rem;
+  font-size: 1.75rem;
   line-height: 1.15;
   letter-spacing: .04em;
   text-align: center;
-  transform: rotate(6deg);
+  transform: rotate(-6deg);
 }
-.fv-free svg { width: 1.6rem; margin-bottom: .2rem; fill: var(--yellow); }
+.fv-free svg { width: 1.9rem; margin-bottom: .2rem; fill: var(--yellow); }
 
 .schedule-card__addr { margin-top: .2rem; font-family: var(--ff-body); font-weight: 400; font-size: 1.3rem; line-height: 1.6; }
+.schedule-card__solo { display: block; margin-top: .2rem; font-family: var(--ff-body); font-weight: 400; font-size: 1.3rem; line-height: 1.6; }
 .schedule-card__fee { font-size: 1.7rem; padding-top: .2rem; }
 .schedule-card__fee b { color: var(--coral-text); font-size: 2.4rem; font-weight: 800; line-height: 1.2; margin-left: .4rem; }
 .schedule-card__note { margin-top: 1rem; font-size: 1.2rem; line-height: 1.6; text-align: center; }
