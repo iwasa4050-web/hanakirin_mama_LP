@@ -1,3 +1,16 @@
+/* =========================================================
+   Web fonts（自前配信・使用文字のみのサブセット）
+   文字を追加したら tools/build-fonts.py で再生成すること
+   ========================================================= */
+@font-face { font-family: "M PLUS 1p"; font-style: normal; font-weight: 500; font-display: swap; src: url("../fonts/mplus1p-500.woff2") format("woff2"); }
+@font-face { font-family: "M PLUS 1p"; font-style: normal; font-weight: 700; font-display: swap; src: url("../fonts/mplus1p-700.woff2") format("woff2"); }
+@font-face { font-family: "M PLUS 1p"; font-style: normal; font-weight: 800; font-display: swap; src: url("../fonts/mplus1p-800.woff2") format("woff2"); }
+@font-face { font-family: "Noto Sans JP"; font-style: normal; font-weight: 400; font-display: swap; src: url("../fonts/notosansjp-400.woff2") format("woff2"); }
+@font-face { font-family: "Poppins"; font-style: normal; font-weight: 500; font-display: swap; src: url("../fonts/poppins-500.woff2") format("woff2"); }
+@font-face { font-family: "Poppins"; font-style: normal; font-weight: 600; font-display: swap; src: url("../fonts/poppins-600.woff2") format("woff2"); }
+@font-face { font-family: "Zen Kurenaido"; font-style: normal; font-weight: 400; font-display: swap; src: url("../fonts/zenkurenaido-400.woff2") format("woff2"); }
+@font-face { font-family: "Shippori Mincho"; font-style: normal; font-weight: 500; font-display: swap; src: url("../fonts/shipporimincho-500.woff2") format("woff2"); }
+
 @charset "UTF-8";
 /* =========================================================
    ママのための『親の役割ってなぁ〜に？』 LP
