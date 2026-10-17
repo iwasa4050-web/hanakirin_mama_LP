@@ -1404,7 +1404,7 @@ em, i { font-style: normal; }
 .ps {
   position: relative;
   padding: 5.6rem 2rem 6rem;
-  background: linear-gradient(rgba(0, 0, 0, .58), rgba(0, 0, 0, .58)), url("../images/ps-bg.jpg") center / cover no-repeat;
+  background: #3a3a3a; /* 画像は .is-bg が付いてから（下のルール） */
   color: #fff;
   font-family: "Shippori Mincho", "Hiragino Mincho ProN", "Yu Mincho", serif;
   font-weight: 500;
@@ -1422,6 +1422,7 @@ em, i { font-style: normal; }
 /* 幕上げアニメーション: JSが .is-ready を付けたときだけ幕を下ろしておき、.is-open で上げる
    （JSが動かない環境や「視差効果を減らす」設定では、最初から開いた状態で表示される） */
 .ps { overflow: hidden; }
+.ps.is-bg { background: linear-gradient(rgba(0, 0, 0, .58), rgba(0, 0, 0, .58)), url("../images/ps-bg.webp") center / cover no-repeat; }
 .ps::after {
   content: "";
   position: absolute;

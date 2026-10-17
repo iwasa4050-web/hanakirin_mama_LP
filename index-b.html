@@ -10,22 +10,24 @@
 <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=M+PLUS+1p:wght@500;700;800&family=Noto+Sans+JP:wght@400;500;700&family=Poppins:wght@500;600&family=Zen+Kurenaido&family=Shippori+Mincho:wght@500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style-b.css?v=b1">
+<link rel="preload" as="image" href="images/fv-teacher2.webp" fetchpriority="high">
+<link rel="preconnect" href="https://connect.facebook.net" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=M+PLUS+1p:wght@500;700;800&family=Noto+Sans+JP:wght@400&family=Poppins:wght@500;600&family=Zen+Kurenaido&family=Shippori+Mincho:wght@500&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=M+PLUS+1p:wght@500;700;800&family=Noto+Sans+JP:wght@400&family=Poppins:wght@500;600&family=Zen+Kurenaido&family=Shippori+Mincho:wght@500&display=swap"></noscript>
+<link rel="stylesheet" href="css/style-b.css?v=b2">
 <!-- Meta Pixel Code -->
 <script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+!function(f,b,e,v,n){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
 n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];
+function l(){var t=b.createElement(e);t.async=!0;t.src=v;var s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}
+/* 計測スクリプト本体はページ描画後に読み込む（イベントはキューに溜まり、読み込み後に送信される） */
+if(b.readyState==='complete'){setTimeout(l,0)}else{f.addEventListener('load',function(){setTimeout(l,0)})}
+}(window, document,'script','https://connect.facebook.net/en_US/fbevents.js');
 fbq('init', '1076592091913767');
 fbq('track', 'PageView');
 </script>
-<noscript><img height="1" width="1" style="display:none"
+<noscript><img decoding="async" height="1" width="1" style="display:none"
 src="https://www.facebook.com/tr?id=1076592091913767&ev=PageView&noscript=1"
 /></noscript>
 <!-- End Meta Pixel Code -->
@@ -73,7 +75,7 @@ src="https://www.facebook.com/tr?id=1076592091913767&ev=PageView&noscript=1"
 
   <!-- ============ FV ============ -->
   <header class="fv-head">
-    <img class="fv-head__illust" src="images/fv-head-mama.webp" width="324" height="360" alt="">
+    <img decoding="async" class="fv-head__illust" src="images/fv-head-mama.webp" width="324" height="360" alt="">
     <p class="fv-head__voice">
       何度も叱ってばかりで<em>後悔と自己嫌悪</em>の繰り返し…<br>
       けど、<em>ダメなことは分かって欲しい</em>…
@@ -82,7 +84,7 @@ src="https://www.facebook.com/tr?id=1076592091913767&ev=PageView&noscript=1"
 
   <section class="fv">
     <div class="fv-main">
-      <img class="fv-teacher" src="images/fv-teacher2.webp" width="900" height="876" alt="講師 大田麻美" fetchpriority="high">
+      <img decoding="async" class="fv-teacher" src="images/fv-teacher2.webp" width="900" height="876" alt="講師 大田麻美" fetchpriority="high">
 
       <p class="fv-telop">
         <span>ちゃんと育って欲しいけど</span>
@@ -105,8 +107,8 @@ src="https://www.facebook.com/tr?id=1076592091913767&ev=PageView&noscript=1"
 
     <div class="fv-lead">
       <div class="fv-photos">
-        <img src="images/fv-seminar3.jpg" width="640" height="480" alt="">
-        <img src="images/fv-seminar2.jpg" width="640" height="480" alt="">
+        <img decoding="async" src="images/fv-seminar3.webp" width="640" height="480" alt="">
+        <img decoding="async" src="images/fv-seminar2.webp" width="640" height="480" alt="">
         <p class="fv-free"><svg viewBox="0 0 60 40" aria-hidden="true"><path d="M6 36 2 10l15 12L30 3l13 19 15-12-4 26z"/></svg>参加費<br>無料</p>
       </div>
       <p class="fv-lead__intro">子どもの自己肯定感を育み、<br>ママの子育ての不安を軽くする</p>
@@ -151,10 +153,10 @@ src="https://www.facebook.com/tr?id=1076592091913767&ev=PageView&noscript=1"
 
   <!-- ============ 写真帯 ============ -->
   <div class="strip" aria-hidden="true">
-    <img src="images/strip1.jpg" width="480" height="360" alt="" loading="lazy">
-    <img src="images/strip2.jpg" width="480" height="360" alt="" loading="lazy">
-    <img src="images/strip3.jpg" width="480" height="360" alt="" loading="lazy">
-    <img src="images/strip4.jpg" width="480" height="360" alt="" loading="lazy">
+    <img decoding="async" src="images/strip1.webp" width="480" height="360" alt="" loading="lazy">
+    <img decoding="async" src="images/strip2.webp" width="480" height="360" alt="" loading="lazy">
+    <img decoding="async" src="images/strip3.webp" width="480" height="360" alt="" loading="lazy">
+    <img decoding="async" src="images/strip4.webp" width="480" height="360" alt="" loading="lazy">
   </div>
 
   <!-- ============ 特典 ============ -->
@@ -192,7 +194,7 @@ src="https://www.facebook.com/tr?id=1076592091913767&ev=PageView&noscript=1"
           <em>相談</em>が無料！
           <span class="benefit__note">※希望される方のみが対象です</span>
         </p>
-        <img class="benefit__img" src="images/benefit-consult2.jpg" width="400" height="400" alt="相談の様子" loading="lazy">
+        <img decoding="async" class="benefit__img" src="images/benefit-consult2.webp" width="400" height="400" alt="相談の様子" loading="lazy">
       </div>
     </div>
   </section>
@@ -236,7 +238,7 @@ src="https://www.facebook.com/tr?id=1076592091913767&ev=PageView&noscript=1"
     <div class="voice__cards">
       <svg class="voice__mascot" viewBox="0 0 110 120" aria-hidden="true"><use href="#giraffe"/></svg>
       <article class="voice-card">
-        <div class="voice-card__illust"><img src="images/voice-1.webp" width="260" height="420" alt="" loading="lazy"></div>
+        <div class="voice-card__illust"><img decoding="async" src="images/voice-1.webp" width="260" height="420" alt="" loading="lazy"></div>
         <p class="voice-card__who"><span>40代</span><span>2児の母</span></p>
         <p class="voice-card__lead">子どものために言っているのに<br><span class="marker">いつも最後は怒ってしまっていました…</span></p>
         <div class="voice-card__body">
@@ -245,7 +247,7 @@ src="https://www.facebook.com/tr?id=1076592091913767&ev=PageView&noscript=1"
         </div>
       </article>
       <article class="voice-card">
-        <div class="voice-card__illust"><img src="images/voice-2.webp" width="242" height="420" alt="" loading="lazy"></div>
+        <div class="voice-card__illust"><img decoding="async" src="images/voice-2.webp" width="242" height="420" alt="" loading="lazy"></div>
         <p class="voice-card__who"><span>30代</span><span>パート</span><span>2児の母</span></p>
         <p class="voice-card__lead">自分で考えてほしいのに<br><span class="marker">つい先回りして口出してしまう</span><span class="nb"><span class="marker">自分が嫌でした</span></span></p>
         <div class="voice-card__body">
@@ -254,7 +256,7 @@ src="https://www.facebook.com/tr?id=1076592091913767&ev=PageView&noscript=1"
         </div>
       </article>
       <article class="voice-card">
-        <div class="voice-card__illust"><img src="images/voice-3.webp" width="347" height="420" alt="" loading="lazy"></div>
+        <div class="voice-card__illust"><img decoding="async" src="images/voice-3.webp" width="347" height="420" alt="" loading="lazy"></div>
         <p class="voice-card__who"><span>40代</span><span>会社員</span><span>長男・長女の母</span></p>
         <p class="voice-card__lead">家族を大切にしたい気持ちと<br><span class="marker">自分の時間がほしい気持ちの間で</span><br><span class="marker">苦しくなっていました</span></p>
         <div class="voice-card__body">
@@ -277,11 +279,11 @@ src="https://www.facebook.com/tr?id=1076592091913767&ev=PageView&noscript=1"
       </svg>
     </h2>
     <div class="survey__sheets" role="img" aria-label="参加者アンケート用紙のイメージ">
-      <img src="images/survey-1.jpg" alt="" loading="lazy">
-      <img src="images/survey-2.jpg" alt="" loading="lazy">
-      <img src="images/survey-1.jpg" alt="" loading="lazy">
-      <img src="images/survey-2.jpg" alt="" loading="lazy">
-      <img src="images/survey-1.jpg" alt="" loading="lazy">
+      <img decoding="async" src="images/survey-1.webp" alt="" loading="lazy">
+      <img decoding="async" src="images/survey-2.webp" alt="" loading="lazy">
+      <img decoding="async" src="images/survey-1.webp" alt="" loading="lazy">
+      <img decoding="async" src="images/survey-2.webp" alt="" loading="lazy">
+      <img decoding="async" src="images/survey-1.webp" alt="" loading="lazy">
     </div>
     <ul class="survey__ratings">
       <li class="rating-card">
@@ -310,13 +312,13 @@ src="https://www.facebook.com/tr?id=1076592091913767&ev=PageView&noscript=1"
       <span>こんな<b>お悩み</b>はありませんか？</span>
     </h2>
     <ul class="worry__list">
-      <li><img class="worry__mama worry__mama--pony" src="images/worry-pony.webp" width="353" height="560" alt="" loading="lazy">
+      <li><img decoding="async" class="worry__mama worry__mama--pony" src="images/worry-pony.webp" width="353" height="560" alt="" loading="lazy">
         思春期の娘と上手く関われなくて、<br><em>このままで良いのかなぁ…</em></li>
       <li>色々と子育ての方法が溢れ過ぎて、<br><em>どれが正解か</em>分からへん</li>
-      <li><img class="worry__mama worry__mama--bob" src="images/worry-bob.webp" width="323" height="560" alt="" loading="lazy">
+      <li><img decoding="async" class="worry__mama worry__mama--bob" src="images/worry-bob.webp" width="323" height="560" alt="" loading="lazy">
         怒って叱るたびに、<br><em>後悔と自己嫌悪</em>で苦しくなる…</li>
       <li>もっと<em>子どもと一緒に</em><br>いてあげたいのに、<br>仕事で時間をとってあげられない</li>
-      <li><img class="worry__mama worry__mama--bun" src="images/worry-bun.webp" width="267" height="560" alt="" loading="lazy">
+      <li><img decoding="async" class="worry__mama worry__mama--bun" src="images/worry-bun.webp" width="267" height="560" alt="" loading="lazy">
         奨学金や習い事に<br><em>いくらお金を</em>かけて<br>あげたらいいのかな…</li>
     </ul>
   </section>
@@ -345,7 +347,7 @@ src="https://www.facebook.com/tr?id=1076592091913767&ev=PageView&noscript=1"
 
   <!-- ============ 語り ============ -->
   <section class="story">
-    <img class="story__photo" src="images/story-photo.jpg" width="1200" height="546" alt="子育てに悩むママ" loading="lazy">
+    <img decoding="async" class="story__photo" src="images/story-photo.webp" width="1200" height="546" alt="子育てに悩むママ" loading="lazy">
     <p class="story__center">
       私たちは、大人のための学び場として、<br>
       本当に多くのママさんたちの<br>
@@ -384,9 +386,9 @@ src="https://www.facebook.com/tr?id=1076592091913767&ev=PageView&noscript=1"
     </p>
 
     <div class="message__photos">
-      <img src="images/mama1.jpg" width="520" height="546" alt="子どもと向き合うママ" loading="lazy">
-      <img src="images/mama2.jpg" width="520" height="546" alt="子どもの勉強を見守るママ" loading="lazy">
-      <img src="images/mama3.jpg" width="520" height="546" alt="子どもと笑い合うママ" loading="lazy">
+      <img decoding="async" src="images/mama1.webp" width="520" height="546" alt="子どもと向き合うママ" loading="lazy">
+      <img decoding="async" src="images/mama2.webp" width="520" height="546" alt="子どもの勉強を見守るママ" loading="lazy">
+      <img decoding="async" src="images/mama3.webp" width="520" height="546" alt="子どもと笑い合うママ" loading="lazy">
     </div>
 
     <p class="message__body">だからこそ、今まさに子育てに向き合っているママさんがこれからの人生を安心して自信を持てるように、<em>ママのための「親の役割ってなぁ〜に？」というセミナー</em>を開催しています。</p>
@@ -398,7 +400,7 @@ src="https://www.facebook.com/tr?id=1076592091913767&ev=PageView&noscript=1"
   <!-- ============ 講師紹介 ============ -->
   <section class="teacher">
     <div class="teacher__hero">
-      <img src="images/teacher-profile.jpg" width="1000" height="855" alt="講師 大田麻美" loading="lazy">
+      <img decoding="async" src="images/teacher-profile.webp" width="1000" height="855" alt="講師 大田麻美" loading="lazy">
       <h2 class="teacher__label">講師紹介</h2>
       <div class="teacher__name">
         <p class="teacher__org">一般社団法人暮らし振興支援機構<br>代表理事</p>
@@ -418,7 +420,7 @@ src="https://www.facebook.com/tr?id=1076592091913767&ev=PageView&noscript=1"
       <p>子育てに悩むママさんたちは、<span class="marker">正しい子育ての“やり方”ばかりを探そうとしていますが、簡単には見つかりません。</span>でも、<em>子どもを正しい方向に導くための考え方はあります。</em>それを知って、親自身の考え方を見直すのが本セミナーです。</p>
     </div>
     <!-- 講演中の写真 -->
-    <img class="teacher__photo" src="images/teacher-talk.jpg" width="1000" height="625" alt="講師 大田麻美" loading="lazy">
+    <img decoding="async" class="teacher__photo" src="images/teacher-talk.webp" width="1000" height="625" alt="講師 大田麻美" loading="lazy">
 
     <!-- 経歴 -->
     <table class="teacher__history">
@@ -438,17 +440,17 @@ src="https://www.facebook.com/tr?id=1076592091913767&ev=PageView&noscript=1"
     <ul class="teacher__media">
       <li>
         <p class="teacher__media-badge">ラジオ<br>出演</p>
-        <img src="images/media-radio.jpg" width="450" height="300" alt="FMラジオ出演時の様子" loading="lazy">
+        <img decoding="async" src="images/media-radio.webp" width="450" height="300" alt="FMラジオ出演時の様子" loading="lazy">
         <p class="teacher__media-cap">FM千里 ほか</p>
       </li>
       <li class="is-right">
         <p class="teacher__media-badge">テレビ<br>出演</p>
-        <img src="images/media-tv.jpg" width="432" height="246" alt="テレビ出演時の様子" loading="lazy">
+        <img decoding="async" src="images/media-tv.webp" width="432" height="246" alt="テレビ出演時の様子" loading="lazy">
         <p class="teacher__media-cap">「親の役割ってなぁ〜に？」をテレビで紹介</p>
       </li>
       <li>
         <p class="teacher__media-badge">新聞<br>掲載</p>
-        <img src="images/media-news.jpg" width="400" height="300" alt="長野日報の掲載記事" loading="lazy">
+        <img decoding="async" src="images/media-news.webp" width="400" height="300" alt="長野日報の掲載記事" loading="lazy">
         <p class="teacher__media-cap">長野日報</p>
       </li>
     </ul>
@@ -459,12 +461,12 @@ src="https://www.facebook.com/tr?id=1076592091913767&ev=PageView&noscript=1"
     <h2 class="org__title">
       <span>私たちは</span>
       <b>一般社団法人暮らし振興支援機構</b>
-      <img class="org__logo" src="images/logo-h.png" alt="はなきりん" loading="lazy">
+      <img decoding="async" class="org__logo" src="images/logo-h.webp" alt="はなきりん" loading="lazy">
       <span>です</span>
     </h2>
     <!-- 集合写真 -->
     <figure class="org__group">
-      <img src="images/org-group.jpg" width="900" height="394" alt="はなきりんのメンバー集合写真" loading="lazy">
+      <img decoding="async" src="images/org-group.webp" width="900" height="394" alt="はなきりんのメンバー集合写真" loading="lazy">
     </figure>
 
     <p class="org__here">＼ 私たちはこちら ／</p>
@@ -491,15 +493,15 @@ src="https://www.facebook.com/tr?id=1076592091913767&ev=PageView&noscript=1"
     </div>
 
     <div class="org__photos" aria-hidden="true">
-      <img src="images/fv-seminar1.jpg" width="640" height="480" alt="" loading="lazy">
-      <img src="images/fv-seminar2.jpg" width="640" height="480" alt="" loading="lazy">
+      <img decoding="async" src="images/fv-seminar1.webp" width="640" height="480" alt="" loading="lazy">
+      <img decoding="async" src="images/fv-seminar2.webp" width="640" height="480" alt="" loading="lazy">
     </div>
   </section>
 
   <!-- ============ セミナー内容 ============ -->
   <section class="program">
     <div class="program__hero">
-      <img src="images/fv-seminar1.jpg" width="640" height="480" alt="" loading="lazy">
+      <img decoding="async" src="images/fv-seminar1.webp" width="640" height="480" alt="" loading="lazy">
       <h2 class="program__label">
         <svg class="program__mascot" viewBox="0 0 110 120" aria-hidden="true"><use href="#giraffe"/></svg>
         <small>『親の役割ってなぁ〜に？』</small>
@@ -535,10 +537,10 @@ src="https://www.facebook.com/tr?id=1076592091913767&ev=PageView&noscript=1"
   <!-- ============ クロージング ============ -->
   <section class="closing">
     <div class="strip" aria-hidden="true">
-      <img src="images/strip3.jpg" width="480" height="360" alt="" loading="lazy">
-      <img src="images/strip1.jpg" width="480" height="360" alt="" loading="lazy">
-      <img src="images/strip4.jpg" width="480" height="360" alt="" loading="lazy">
-      <img src="images/strip2.jpg" width="480" height="360" alt="" loading="lazy">
+      <img decoding="async" src="images/strip3.webp" width="480" height="360" alt="" loading="lazy">
+      <img decoding="async" src="images/strip1.webp" width="480" height="360" alt="" loading="lazy">
+      <img decoding="async" src="images/strip4.webp" width="480" height="360" alt="" loading="lazy">
+      <img decoding="async" src="images/strip2.webp" width="480" height="360" alt="" loading="lazy">
     </div>
     <h2 class="closing__title">
       <small>ママのための</small>
@@ -546,9 +548,9 @@ src="https://www.facebook.com/tr?id=1076592091913767&ev=PageView&noscript=1"
       <em>「これじゃあかんかな…」が<br>「これでええねん！」に変わる子育ての考え方</em>
     </h2>
     <div class="closing__free">
-      <div class="closing__mama"><img src="images/closing-mama1.webp" width="374" height="520" alt="" loading="lazy"></div>
+      <div class="closing__mama"><img decoding="async" src="images/closing-mama1.webp" width="374" height="520" alt="" loading="lazy"></div>
       <p class="closing__badge"><svg viewBox="0 0 60 40" aria-hidden="true"><path d="M6 36 2 10l15 12L30 3l13 19 15-12-4 26z"/></svg>参加費<br>無料</p>
-      <div class="closing__mama"><img src="images/closing-mama2.webp" width="346" height="520" alt="" loading="lazy"></div>
+      <div class="closing__mama"><img decoding="async" src="images/closing-mama2.webp" width="346" height="520" alt="" loading="lazy"></div>
     </div>
     <div class="closing__benefit">
       <div class="benefit__box">
@@ -584,7 +586,7 @@ src="https://www.facebook.com/tr?id=1076592091913767&ev=PageView&noscript=1"
           <em>相談</em>が無料！
           <span class="benefit__note">※希望される方のみが対象です</span>
         </p>
-        <img class="benefit__img" src="images/benefit-consult2.jpg" width="400" height="400" alt="相談の様子" loading="lazy">
+        <img decoding="async" class="benefit__img" src="images/benefit-consult2.webp" width="400" height="400" alt="相談の様子" loading="lazy">
       </div>
     </div>
     </div>
@@ -646,7 +648,7 @@ src="https://www.facebook.com/tr?id=1076592091913767&ev=PageView&noscript=1"
       <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 15l7-7 7 7" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
       ページの上部へ
     </a>
-    <img class="footer__logo" src="images/logo-h.png" alt="はなきりん" loading="lazy">
+    <img decoding="async" class="footer__logo" src="images/logo-h.webp" alt="はなきりん" loading="lazy">
     <p class="footer__org">一般社団法人暮らし振興支援機構</p>
     <address class="footer__addr">
       〒663-8113<br>
@@ -753,6 +755,16 @@ src="https://www.facebook.com/tr?id=1076592091913767&ev=PageView&noscript=1"
       updateGo(); checkScroll(); consent.querySelector('.consent__close').focus();
     }
     function closeConsent() { consent.hidden = true; document.body.classList.remove('is-locked'); if (lastFocus) lastFocus.focus(); }
+  // P.S.の背景画像は近づいてから読み込む
+  (function () {
+    var ps = document.querySelector('.ps');
+    if (!ps) return;
+    if (!('IntersectionObserver' in window)) { ps.classList.add('is-bg'); return; }
+    var io = new IntersectionObserver(function (entries) {
+      if (entries.some(function (e) { return e.isIntersecting; })) { ps.classList.add('is-bg'); io.disconnect(); }
+    }, { rootMargin: '900px 0px' });
+    io.observe(ps);
+  })();
     document.querySelectorAll('a.btn-cta:not(.consent__go), a.float-cta').forEach(function (el) { el.addEventListener('click', openConsent); });
     body.addEventListener('scroll', checkScroll, { passive: true });
     agree.addEventListener('change', updateGo);
