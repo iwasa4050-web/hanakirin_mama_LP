@@ -1864,3 +1864,6 @@ body.is-locked { overflow: hidden; }
 .schedule-card__timer .timer__num[data-t="d"] { min-width: 1.4em; background: var(--coral-text); }
 .schedule-card__timer small { font-size: 1.1rem; font-weight: 700; color: var(--brown); }
 .schedule-card__timer .timer__closed { font-size: 1.4rem; color: var(--coral-text); }
+/* B案: 必須チェックの文言を2行に */
+.consent__check { font-size: 1.12rem; letter-spacing: 0; gap: .6rem; }
+.consent__check span { white-space: nowrap; }

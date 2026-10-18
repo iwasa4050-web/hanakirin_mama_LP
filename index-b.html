@@ -12,7 +12,7 @@
 <link rel="preload" as="font" type="font/woff2" href="fonts/mplus1p-700.woff2" crossorigin>
 <link rel="preload" as="image" href="images/fv-teacher2.webp" fetchpriority="high">
 <link rel="preconnect" href="https://connect.facebook.net" crossorigin>
-<link rel="stylesheet" href="css/style-b.css?v=b14">
+<link rel="stylesheet" href="css/style-b.css?v=b15">
 <!-- Meta Pixel Code -->
 <script>
 !function(f,b,e,v,n){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -686,7 +686,7 @@ src="https://www.facebook.com/tr?id=1076592091913767&ev=PageView&noscript=1"
     <p class="consent__hint"><span class="consent__arrow" aria-hidden="true"></span>最後までスクロールすると予約できます</p>
     <label class="consent__check">
       <input type="checkbox" id="consent-agree" disabled>
-      <span><b class="consent__req">【必須】</b>上記の「個人情報の取扱いについて」及び当会のプライバシーポリシーを確認しました。</span>
+      <span><b class="consent__req">【必須】</b>上記の「個人情報の取扱いについて」及び<br>当会のプライバシーポリシーを確認しました。</span>
     </label>
     <a class="btn-cta consent__go is-disabled" href="https://hanakirin.or.jp/entry/?post_id=27394" target="_blank" rel="noopener" aria-disabled="true">無料で席を予約する</a>
     <p class="consent__seats">先着30組のうち <b>残り<span class="consent__seats-num">23</span>組</b></p>
@@ -764,7 +764,7 @@ src="https://www.facebook.com/tr?id=1076592091913767&ev=PageView&noscript=1"
     var scrolledEndSent = false;
     function checkScroll() {
       if (reachedEnd() && !scrolledEndSent) { scrolledEndSent = true; if (window.fbq) { fbq('trackCustom', 'ConsentScrolledEnd'); } }
-      if (reachedEnd()) { agree.disabled = false; hint.classList.add('is-done'); hint.textContent = 'ありがとうございます！チェックを入れて、席を予約してください'; consent.classList.add('is-read'); }
+      if (reachedEnd()) { agree.disabled = false; hint.classList.add('is-done'); hint.textContent = '最後まで確認していただきありがとうございます！'; consent.classList.add('is-read'); }
     }
     function updateGo() { var ok = agree.checked; go.classList.toggle('is-disabled', !ok); go.setAttribute('aria-disabled', ok ? 'false' : 'true'); }
     function openConsent(e) {
