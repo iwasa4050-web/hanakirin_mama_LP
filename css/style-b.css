@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /* =========================================================
    Web fonts（自前配信・使用文字のみのサブセット）
    文字を追加したら tools/build-fonts.py で再生成すること
@@ -11,7 +12,6 @@
 @font-face { font-family: "Zen Kurenaido"; font-style: normal; font-weight: 400; font-display: swap; src: url("../fonts/zenkurenaido-400.woff2") format("woff2"); }
 @font-face { font-family: "Shippori Mincho"; font-style: normal; font-weight: 500; font-display: swap; src: url("../fonts/shipporimincho-500.woff2") format("woff2"); }
 
-@charset "UTF-8";
 /* =========================================================
    ママのための『親の役割ってなぁ〜に？』 LP
    単位ルール: 1rem = スマホ375px幅での10px（カラム幅に比例して拡縮）
@@ -98,6 +98,50 @@ em, i { font-style: normal; }
   background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 6' preserveAspectRatio='none'%3E%3Cpath d='M1 4C18 1 30 5 48 3s34-2 51 0' fill='none' stroke='%23ffda3f' stroke-width='1.6' stroke-linecap='round'/%3E%3C/svg%3E") left bottom / 100% .5rem no-repeat;
   padding-bottom: .2rem;
 }
+
+/* B案: ヘッダー帯を申込締切カウントダウンに */
+.fv-head--timer {
+  display: block;
+  padding: .9rem 1rem .8rem;
+  text-align: center;
+  color: #fff;
+}
+.timer__label {
+  font-family: var(--ff-head);
+  font-weight: 700;
+  font-size: 1.3rem;
+  line-height: 1.4;
+  letter-spacing: .04em;
+}
+.timer__label b { font-family: var(--ff-num); font-weight: 600; font-size: 1.6rem; letter-spacing: 0; margin: 0 .1rem; }
+.timer__label b small { font-family: var(--ff-head); font-weight: 700; font-size: 1.2rem; margin: 0 .05rem; }
+.timer__count {
+  margin-top: .3rem;
+  font-family: var(--ff-head);
+  font-weight: 800;
+  font-size: 1.3rem;
+  line-height: 1.2;
+  white-space: nowrap;
+}
+.timer__ato { margin-right: .5rem; }
+.timer__num {
+  display: inline-block;
+  min-width: 2.2em;
+  padding: .15rem .3rem;
+  margin: 0 .15rem 0 .2rem;
+  border-radius: .5rem;
+  background: #fff;
+  color: var(--teal-deep);
+  font-family: var(--ff-num);
+  font-weight: 600;
+  font-size: 2.3rem;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0;
+  text-align: center;
+}
+.timer__num[data-t="d"] { min-width: 1.6em; color: var(--coral-text); }
+.timer__count small { font-size: 1.2rem; font-weight: 700; color: var(--yellow); }
+.timer__closed { margin-top: .4rem; font-family: var(--ff-head); font-weight: 800; font-size: 1.6rem; color: var(--yellow); }
 
 /* =========================================================
    FV: メイン
@@ -537,15 +581,16 @@ em, i { font-style: normal; }
   max-width: 28rem;
   min-height: 6rem;
   margin: 2rem auto 0;
-  padding: 0 3.6rem .2rem;
+  padding: 0 3.2rem .2rem 2.4rem;
   border-radius: 99rem;
   background: var(--yellow);
   box-shadow: 0 .5rem 0 var(--yellow-shade);
   color: var(--brown-deep);
   font-family: var(--ff-head);
   font-weight: 800;
-  font-size: 1.9rem;
-  letter-spacing: .06em;
+  font-size: 1.75rem;
+  letter-spacing: .03em;
+  white-space: nowrap;
   text-decoration: none;
   transition: transform .15s, box-shadow .15s;
 }
@@ -1539,6 +1584,7 @@ em, i { font-style: normal; }
   font-weight: 700;
   line-height: 1.5;
 }
+.float-cta__label { white-space: nowrap; font-size: 1.55rem; letter-spacing: 0; }
 .float-cta:active { transform: translateY(.3rem); box-shadow: 0 .2rem 0 var(--yellow-shade); }
 @media (prefers-reduced-motion: reduce) { .float-cta { transition: none; } }
 

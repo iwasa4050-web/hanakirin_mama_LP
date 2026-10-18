@@ -12,7 +12,7 @@
 <link rel="preload" as="font" type="font/woff2" href="fonts/mplus1p-700.woff2" crossorigin>
 <link rel="preload" as="image" href="images/fv-teacher2.webp" fetchpriority="high">
 <link rel="preconnect" href="https://connect.facebook.net" crossorigin>
-<link rel="stylesheet" href="css/style-b.css?v=b3">
+<link rel="stylesheet" href="css/style-b.css?v=b7">
 <!-- Meta Pixel Code -->
 <script>
 !function(f,b,e,v,n){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -72,12 +72,10 @@ src="https://www.facebook.com/tr?id=1076592091913767&ev=PageView&noscript=1"
   </svg>
 
   <!-- ============ FV ============ -->
-  <header class="fv-head">
-    <img decoding="async" class="fv-head__illust" src="images/fv-head-mama-160.webp" width="160" height="178" alt="">
-    <p class="fv-head__voice">
-      何度も叱ってばかりで<em>後悔と自己嫌悪</em>の繰り返し…<br>
-      けど、<em>ダメなことは分かって欲しい</em>…
-    </p>
+  <header class="fv-head fv-head--timer" data-deadline="2026-10-26T23:59:59+09:00">
+    <p class="timer__label">申込締切 <b>10<small>月</small>26<small>日</small>(月) 23:59</b> まで</p>
+    <p class="timer__count"><span class="timer__ato">あと</span><b class="timer__num" data-t="d">0</b><small>日</small><b class="timer__num" data-t="h">00</b><small>時間</small><b class="timer__num" data-t="m">00</b><small>分</small><b class="timer__num" data-t="s">00</b><small>秒</small></p>
+    <p class="timer__closed" hidden>申込受付は終了しました</p>
   </header>
 
   <section class="fv">
@@ -220,9 +218,9 @@ src="https://www.facebook.com/tr?id=1076592091913767&ev=PageView&noscript=1"
         <dd><span class="schedule-card__fee">参加費 <b>無料</b></span><span class="schedule-card__solo">参加申込は一人でも可能です</span></dd>
       </dl>
       <p class="schedule-card__name">ママのための『親の役割ってなぁ〜に？』</p>
-      <a class="btn-cta" href="https://hanakirin.or.jp/entry/?post_id=27394" target="_blank" rel="noopener">セミナーに参加する</a>
-      <p class="schedule-card__limit">申込期限 <b>11</b>月<b>19</b>日まで</p>
-      <p class="schedule-card__note">※営業は一切致しません。<br>※お子さまの同伴はご遠慮ください。</p>
+      <a class="btn-cta" href="https://hanakirin.or.jp/entry/?post_id=27394" target="_blank" rel="noopener">無料で席を予約しておく</a>
+      <p class="schedule-card__limit">申込期限 <b>10</b>月<b>26</b>日まで</p>
+      <p class="schedule-card__note">※営業は一切致しません。</p>
     </article>
   </section>
 
@@ -613,15 +611,15 @@ src="https://www.facebook.com/tr?id=1076592091913767&ev=PageView&noscript=1"
         <dd><span class="schedule-card__fee">参加費 <b>無料</b></span><span class="schedule-card__solo">参加申込は一人でも可能です</span></dd>
       </dl>
       <p class="schedule-card__name">ママのための『親の役割ってなぁ〜に？』</p>
-      <a class="btn-cta" href="https://hanakirin.or.jp/entry/?post_id=27394" target="_blank" rel="noopener">セミナーに参加する</a>
-      <p class="schedule-card__limit">申込期限 <b>11</b>月<b>19</b>日まで</p>
-      <p class="schedule-card__note">※営業は一切致しません。<br>※お子さまの同伴はご遠慮ください。</p>
+      <a class="btn-cta" href="https://hanakirin.or.jp/entry/?post_id=27394" target="_blank" rel="noopener">無料で席を予約しておく</a>
+      <p class="schedule-card__limit">申込期限 <b>10</b>月<b>26</b>日まで</p>
+      <p class="schedule-card__note">※営業は一切致しません。</p>
     </article>
 
     <div class="flow">
       <h3 class="flow__title">お申し込み後の流れ</h3>
       <ol class="flow__list">
-        <li><b>フォームからお申し込み</b>「セミナーに参加する」ボタンから、参加申込フォームにご入力ください。</li>
+        <li><b>フォームからお申し込み</b>「無料で席を予約しておく」ボタンから、参加申込フォームにご入力ください。</li>
         <li><b>受付完了メールが届きます</b>後日、事務局の営業日に info@hanakirin.or.jp からメールをお送りします。受信できるよう設定をお願いします。</li>
         <li><b>当日、会場へお越しください</b>受付は13:00から。イコマド・元町でお待ちしています。</li>
       </ol>
@@ -693,12 +691,34 @@ src="https://www.facebook.com/tr?id=1076592091913767&ev=PageView&noscript=1"
 </div>
 
 <!-- 追従CTA（オファー付近ではフェードアウト） -->
-<a class="float-cta" href="https://hanakirin.or.jp/entry/?post_id=27394" target="_blank" rel="noopener" aria-label="セミナーに参加する（参加費無料）">
+<a class="float-cta" href="https://hanakirin.or.jp/entry/?post_id=27394" target="_blank" rel="noopener" aria-label="無料で席を予約しておく">
   <small>参加費無料</small>
-  <span>セミナーに<br>参加する</span>
+  <span class="float-cta__label">席を予約する</span>
 </a>
 
 
+<script>
+(function () {
+  var head = document.querySelector('.fv-head--timer');
+  if (!head) return;
+  var end = new Date(head.getAttribute('data-deadline')).getTime();
+  var nums = {};
+  head.querySelectorAll('.timer__num').forEach(function (el) { nums[el.getAttribute('data-t')] = el; });
+  var count = head.querySelector('.timer__count'), closed = head.querySelector('.timer__closed');
+  function pad(n) { return (n < 10 ? '0' : '') + n; }
+  function tick() {
+    var left = end - Date.now();
+    if (left <= 0) { count.hidden = true; closed.hidden = false; return; }
+    var sec = Math.floor(left / 1000);
+    nums.d.textContent = Math.floor(sec / 86400);
+    nums.h.textContent = pad(Math.floor(sec % 86400 / 3600));
+    nums.m.textContent = pad(Math.floor(sec % 3600 / 60));
+    nums.s.textContent = pad(sec % 60);
+    setTimeout(tick, 1000 - Date.now() % 1000);
+  }
+  tick();
+})();
+</script>
 <script>
 (function () {
   var btn = document.querySelector('.float-cta');
