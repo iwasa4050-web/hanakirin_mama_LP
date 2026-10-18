@@ -24,7 +24,8 @@ function l(){var t=b.createElement(e);t.async=!0;t.src=v;var s=b.getElementsByTa
 if(b.readyState==='complete'){setTimeout(l,0)}else{f.addEventListener('load',function(){setTimeout(l,0)})}
 }(window, document,'script','https://connect.facebook.net/en_US/fbevents.js');
 fbq('init', '1076592091913767');
-fbq('track', 'PageView');
+window.fbEid = function () { return Date.now().toString(36) + '-' + Math.random().toString(36).slice(2, 10); };
+fbq('track', 'PageView', {}, { eventID: window.fbEid() });
 </script>
 <noscript><img decoding="async" height="1" width="1" style="display:none"
 src="https://www.facebook.com/tr?id=1076592091913767&ev=PageView&noscript=1"
@@ -741,13 +742,13 @@ src="https://www.facebook.com/tr?id=1076592091913767&ev=PageView&noscript=1"
     function reachedEnd() { return body.scrollTop + body.clientHeight >= body.scrollHeight - 8; }
     var scrolledEndSent = false;
     function checkScroll() {
-      if (reachedEnd() && !scrolledEndSent) { scrolledEndSent = true; if (window.fbq) { fbq('trackCustom', 'ConsentScrolledEnd'); } }
+      if (reachedEnd() && !scrolledEndSent) { scrolledEndSent = true; if (window.fbq) { fbq('trackCustom', 'ConsentScrolledEnd', {}, { eventID: window.fbEid() }); } }
       if (reachedEnd()) { agree.disabled = false; hint.classList.add('is-done'); hint.textContent = '最後までお読みいただき、ありがとうございます'; }
     }
     function updateGo() { var ok = agree.checked; go.classList.toggle('is-disabled', !ok); go.setAttribute('aria-disabled', ok ? 'false' : 'true'); }
     function openConsent(e) {
       e.preventDefault(); lastFocus = e.currentTarget;
-      if (window.fbq) { fbq('track', 'InitiateCheckout'); }
+      if (window.fbq) { fbq('track', 'InitiateCheckout', {}, { eventID: window.fbEid() }); }
       consent.hidden = false; document.body.classList.add('is-locked');
       body.scrollTop = 0; agree.checked = false; agree.disabled = true;
       hint.classList.remove('is-done'); hint.textContent = '▼ 最後までスクロールすると同意できます';
@@ -767,7 +768,7 @@ src="https://www.facebook.com/tr?id=1076592091913767&ev=PageView&noscript=1"
     document.querySelectorAll('a.btn-cta:not(.consent__go), a.float-cta').forEach(function (el) { el.addEventListener('click', openConsent); });
     body.addEventListener('scroll', checkScroll, { passive: true });
     agree.addEventListener('change', updateGo);
-    go.addEventListener('click', function (e) { if (go.classList.contains('is-disabled')) { e.preventDefault(); return; } if (window.fbq) { fbq('track', 'Lead'); } closeConsent(); });
+    go.addEventListener('click', function (e) { if (go.classList.contains('is-disabled')) { e.preventDefault(); return; } if (window.fbq) { fbq('track', 'Lead', {}, { eventID: window.fbEid() }); } closeConsent(); });
     consent.querySelector('.consent__close').addEventListener('click', closeConsent);
     consent.addEventListener('click', function (e) { if (e.target === consent) closeConsent(); });
     document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !consent.hidden) closeConsent(); });
