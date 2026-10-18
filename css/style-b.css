@@ -1840,3 +1840,27 @@ body.is-locked { overflow: hidden; }
 .consent__seats { margin: 1.1rem 0 0; font-family: var(--ff-head); font-weight: 700; font-size: 1.3rem; line-height: 1.4; text-align: center; color: var(--brown); }
 .consent__seats b { color: #d9342b; font-weight: 800; font-size: 1.5rem; }
 .consent__seats-num { font-family: var(--ff-num); font-weight: 600; font-size: 2.1rem; margin: 0 .1rem; letter-spacing: 0; }
+/* B案: 開催日程カード内の締切カウントダウン */
+.schedule-card__timer {
+  margin-top: .6rem;
+  font-family: var(--ff-head);
+  font-weight: 800;
+  font-size: 1.2rem;
+  line-height: 1.2;
+  text-align: center;
+  white-space: nowrap;
+  color: var(--brown-deep);
+}
+.schedule-card__timer .timer__ato { margin-right: .3rem; }
+.schedule-card__timer .timer__num {
+  min-width: 2em;
+  padding: .15rem .15rem;
+  margin: 0 .1rem 0 .15rem;
+  border-radius: .4rem;
+  background: var(--teal-deep);
+  color: #fff;
+  font-size: 1.8rem;
+}
+.schedule-card__timer .timer__num[data-t="d"] { min-width: 1.4em; background: var(--coral-text); }
+.schedule-card__timer small { font-size: 1.1rem; font-weight: 700; color: var(--brown); }
+.schedule-card__timer .timer__closed { font-size: 1.4rem; color: var(--coral-text); }

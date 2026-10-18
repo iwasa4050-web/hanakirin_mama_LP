@@ -12,7 +12,7 @@
 <link rel="preload" as="font" type="font/woff2" href="fonts/mplus1p-700.woff2" crossorigin>
 <link rel="preload" as="image" href="images/fv-teacher2.webp" fetchpriority="high">
 <link rel="preconnect" href="https://connect.facebook.net" crossorigin>
-<link rel="stylesheet" href="css/style-b.css?v=b12">
+<link rel="stylesheet" href="css/style-b.css?v=b14">
 <!-- Meta Pixel Code -->
 <script>
 !function(f,b,e,v,n){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -72,7 +72,7 @@ src="https://www.facebook.com/tr?id=1076592091913767&ev=PageView&noscript=1"
   </svg>
 
   <!-- ============ FV ============ -->
-  <header class="fv-head fv-head--timer" data-deadline="2026-10-26T23:59:59+09:00">
+  <header class="fv-head fv-head--timer js-countdown" data-deadline="2026-10-26T23:59:59+09:00">
     <p class="timer__label">申込締切 <b>10<small>月</small>26<small>日</small>(月) 23:59</b> まで</p>
     <p class="timer__count"><span class="timer__ato">あと</span><b class="timer__num" data-t="d">0</b><small>日</small><b class="timer__num" data-t="h">00</b><small>時間</small><b class="timer__num" data-t="m">00</b><small>分</small><b class="timer__num" data-t="s">00</b><small>秒</small></p>
     <p class="timer__closed" hidden>申込受付は終了しました</p>
@@ -220,6 +220,7 @@ src="https://www.facebook.com/tr?id=1076592091913767&ev=PageView&noscript=1"
       <p class="schedule-card__name">ママのための『親の役割ってなぁ〜に？』</p>
       <a class="btn-cta" href="https://hanakirin.or.jp/entry/?post_id=27394" target="_blank" rel="noopener">無料で席を予約しておく</a>
       <p class="schedule-card__limit">申込期限 <b>10</b>月<b>26</b>日まで</p>
+      <p class="schedule-card__timer js-countdown"><span class="timer__count"><span class="timer__ato">残り</span><b class="timer__num" data-t="d">0</b><small>日</small><b class="timer__num" data-t="h">00</b><small>時間</small><b class="timer__num" data-t="m">00</b><small>分</small><b class="timer__num" data-t="s">00</b><small>秒</small></span><span class="timer__closed" hidden>申込受付は終了しました</span></p>
       <p class="schedule-card__note">※セミナー後に営業は一切致しません。</p>
     </article>
   </section>
@@ -613,6 +614,7 @@ src="https://www.facebook.com/tr?id=1076592091913767&ev=PageView&noscript=1"
       <p class="schedule-card__name">ママのための『親の役割ってなぁ〜に？』</p>
       <a class="btn-cta" href="https://hanakirin.or.jp/entry/?post_id=27394" target="_blank" rel="noopener">無料で席を予約しておく</a>
       <p class="schedule-card__limit">申込期限 <b>10</b>月<b>26</b>日まで</p>
+      <p class="schedule-card__timer js-countdown"><span class="timer__count"><span class="timer__ato">残り</span><b class="timer__num" data-t="d">0</b><small>日</small><b class="timer__num" data-t="h">00</b><small>時間</small><b class="timer__num" data-t="m">00</b><small>分</small><b class="timer__num" data-t="s">00</b><small>秒</small></span><span class="timer__closed" hidden>申込受付は終了しました</span></p>
       <p class="schedule-card__note">※セミナー後に営業は一切致しません。</p>
     </article>
 
@@ -700,21 +702,21 @@ src="https://www.facebook.com/tr?id=1076592091913767&ev=PageView&noscript=1"
 
 <script>
 (function () {
-  var head = document.querySelector('.fv-head--timer');
-  if (!head) return;
-  var end = new Date(head.getAttribute('data-deadline')).getTime();
-  var nums = {};
-  head.querySelectorAll('.timer__num').forEach(function (el) { nums[el.getAttribute('data-t')] = el; });
-  var count = head.querySelector('.timer__count'), closed = head.querySelector('.timer__closed');
+  var boxes = document.querySelectorAll('.js-countdown');
+  if (!boxes.length) return;
+  var end = new Date('2026-10-26T23:59:59+09:00').getTime();
   function pad(n) { return (n < 10 ? '0' : '') + n; }
+  var items = Array.prototype.map.call(boxes, function (box) {
+    var nums = {};
+    box.querySelectorAll('.timer__num').forEach(function (el) { nums[el.getAttribute('data-t')] = el; });
+    return { nums: nums, count: box.querySelector('.timer__count'), closed: box.querySelector('.timer__closed') };
+  });
   function tick() {
     var left = end - Date.now();
-    if (left <= 0) { count.hidden = true; closed.hidden = false; return; }
+    if (left <= 0) { items.forEach(function (it) { it.count.hidden = true; it.closed.hidden = false; }); return; }
     var sec = Math.floor(left / 1000);
-    nums.d.textContent = Math.floor(sec / 86400);
-    nums.h.textContent = pad(Math.floor(sec % 86400 / 3600));
-    nums.m.textContent = pad(Math.floor(sec % 3600 / 60));
-    nums.s.textContent = pad(sec % 60);
+    var d = Math.floor(sec / 86400), h = pad(Math.floor(sec % 86400 / 3600)), m = pad(Math.floor(sec % 3600 / 60)), ss = pad(sec % 60);
+    items.forEach(function (it) { it.nums.d.textContent = d; it.nums.h.textContent = h; it.nums.m.textContent = m; it.nums.s.textContent = ss; });
     setTimeout(tick, 1000 - Date.now() % 1000);
   }
   tick();
