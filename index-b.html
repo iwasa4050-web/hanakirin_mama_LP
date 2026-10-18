@@ -12,7 +12,7 @@
 <link rel="preload" as="font" type="font/woff2" href="fonts/mplus1p-700.woff2" crossorigin>
 <link rel="preload" as="image" href="images/fv-teacher2.webp" fetchpriority="high">
 <link rel="preconnect" href="https://connect.facebook.net" crossorigin>
-<link rel="stylesheet" href="css/style-b.css?v=b7">
+<link rel="stylesheet" href="css/style-b.css?v=b12">
 <!-- Meta Pixel Code -->
 <script>
 !function(f,b,e,v,n){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -220,7 +220,7 @@ src="https://www.facebook.com/tr?id=1076592091913767&ev=PageView&noscript=1"
       <p class="schedule-card__name">ママのための『親の役割ってなぁ〜に？』</p>
       <a class="btn-cta" href="https://hanakirin.or.jp/entry/?post_id=27394" target="_blank" rel="noopener">無料で席を予約しておく</a>
       <p class="schedule-card__limit">申込期限 <b>10</b>月<b>26</b>日まで</p>
-      <p class="schedule-card__note">※営業は一切致しません。</p>
+      <p class="schedule-card__note">※セミナー後に営業は一切致しません。</p>
     </article>
   </section>
 
@@ -613,7 +613,7 @@ src="https://www.facebook.com/tr?id=1076592091913767&ev=PageView&noscript=1"
       <p class="schedule-card__name">ママのための『親の役割ってなぁ〜に？』</p>
       <a class="btn-cta" href="https://hanakirin.or.jp/entry/?post_id=27394" target="_blank" rel="noopener">無料で席を予約しておく</a>
       <p class="schedule-card__limit">申込期限 <b>10</b>月<b>26</b>日まで</p>
-      <p class="schedule-card__note">※営業は一切致しません。</p>
+      <p class="schedule-card__note">※セミナー後に営業は一切致しません。</p>
     </article>
 
     <div class="flow">
@@ -666,7 +666,7 @@ src="https://www.facebook.com/tr?id=1076592091913767&ev=PageView&noscript=1"
   <div class="consent__panel">
     <button type="button" class="consent__close" aria-label="閉じる">×</button>
     <h2 class="consent__title" id="consent-title">個人情報の取扱いについて</h2>
-    <p class="consent__lead">お申し込みの前に、最後までお読みください。</p>
+    <p class="consent__lead">安心してご参加いただくために、大切なことだけ先に確認させてください。<br><b>読み終わると予約ボタンが押せます。</b></p>
     <div class="consent__body" tabindex="0">
       <p>本セミナーへのお申込みに際してご提供いただく個人情報は、本セミナーの運営、参加者への連絡、質問・相談への対応、アフターフォローその他当会のプライバシーポリシーに定める目的で利用します。</p>
       <p>また、本セミナーについては、当会（一般社団法人暮らし振興支援機構）及び本セミナーの講師、スピーカー、開催協力者その他これらに準ずる立場を務める下記会員との間で、申込者及び参加者の個人情報を共同利用します。</p>
@@ -681,12 +681,13 @@ src="https://www.facebook.com/tr?id=1076592091913767&ev=PageView&noscript=1"
       <p class="consent__policy"><a href="https://hanakirin.or.jp/privacy-policy/" target="_blank" rel="noopener">プライバシーポリシーを確認する</a></p>
       <p class="consent__end">— 以上 —</p>
     </div>
-    <p class="consent__hint">▼ 最後までスクロールすると同意できます</p>
+    <p class="consent__hint"><span class="consent__arrow" aria-hidden="true"></span>最後までスクロールすると予約できます</p>
     <label class="consent__check">
       <input type="checkbox" id="consent-agree" disabled>
       <span><b class="consent__req">【必須】</b>上記の「個人情報の取扱いについて」及び当会のプライバシーポリシーを確認しました。</span>
     </label>
-    <a class="btn-cta consent__go is-disabled" href="https://hanakirin.or.jp/entry/?post_id=27394" target="_blank" rel="noopener" aria-disabled="true">上記を理解の上、<br>セミナーに申し込みます。</a>
+    <a class="btn-cta consent__go is-disabled" href="https://hanakirin.or.jp/entry/?post_id=27394" target="_blank" rel="noopener" aria-disabled="true">無料で席を予約する</a>
+    <p class="consent__seats">先着30組のうち <b>残り<span class="consent__seats-num">23</span>組</b></p>
   </div>
 </div>
 
@@ -761,7 +762,7 @@ src="https://www.facebook.com/tr?id=1076592091913767&ev=PageView&noscript=1"
     var scrolledEndSent = false;
     function checkScroll() {
       if (reachedEnd() && !scrolledEndSent) { scrolledEndSent = true; if (window.fbq) { fbq('trackCustom', 'ConsentScrolledEnd'); } }
-      if (reachedEnd()) { agree.disabled = false; hint.classList.add('is-done'); hint.textContent = '最後までお読みいただき、ありがとうございます'; }
+      if (reachedEnd()) { agree.disabled = false; hint.classList.add('is-done'); hint.textContent = 'ありがとうございます！チェックを入れて、席を予約してください'; consent.classList.add('is-read'); }
     }
     function updateGo() { var ok = agree.checked; go.classList.toggle('is-disabled', !ok); go.setAttribute('aria-disabled', ok ? 'false' : 'true'); }
     function openConsent(e) {
@@ -769,7 +770,7 @@ src="https://www.facebook.com/tr?id=1076592091913767&ev=PageView&noscript=1"
       if (window.fbq) { fbq('track', 'InitiateCheckout'); }
       consent.hidden = false; document.body.classList.add('is-locked');
       body.scrollTop = 0; agree.checked = false; agree.disabled = true;
-      hint.classList.remove('is-done'); hint.textContent = '▼ 最後までスクロールすると同意できます';
+      hint.classList.remove('is-done'); hint.innerHTML = '<span class="consent__arrow" aria-hidden="true"></span>最後までスクロールすると予約できます'; consent.classList.remove('is-read');
       updateGo(); checkScroll(); consent.querySelector('.consent__close').focus();
     }
     function closeConsent() { consent.hidden = true; document.body.classList.remove('is-locked'); if (lastFocus) lastFocus.focus(); }

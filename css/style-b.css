@@ -1800,3 +1800,43 @@ body.is-locked { overflow: hidden; }
 .consent__go { margin-top: 1.4rem; min-height: 5.4rem; padding-top: .6rem; padding-bottom: .6rem; font-size: 1.55rem; line-height: 1.35; }
 .consent__go.is-disabled { background: #d9d9d2; box-shadow: 0 .5rem 0 #b5b5ad; color: #8a8a80; pointer-events: none; }
 .consent__go.is-disabled::after { border-left-color: #8a8a80; }
+
+/* B案: 同意モーダルを「予約の最終ステップ」として見せる */
+.consent__panel { overflow-y: auto; }
+.consent__body { min-height: 12rem; }
+.consent__title { font-size: 1.7rem; }
+.consent__lead b { color: var(--teal-deep); font-weight: 700; }
+.consent__hint { display: flex; align-items: center; justify-content: center; gap: .4rem; }
+.consent__arrow {
+  display: inline-block;
+  width: 1.2rem;
+  height: 1.2rem;
+  border-right: .25rem solid currentColor;
+  border-bottom: .25rem solid currentColor;
+  transform: rotate(45deg) translate(-.15rem, -.15rem);
+  animation: consent-bounce 1.2s ease-in-out infinite;
+}
+@keyframes consent-bounce {
+  0%, 100% { transform: rotate(45deg) translate(-.15rem, -.15rem); }
+  50% { transform: rotate(45deg) translate(.15rem, .15rem); }
+}
+.consent.is-read .consent__check { animation: consent-pop .6s ease-out 1; }
+.consent.is-read .consent__check input { outline: .3rem solid var(--yellow); outline-offset: .15rem; border-radius: .3rem; }
+.consent.is-read .consent__check input:checked { outline: none; }
+@keyframes consent-pop {
+  0% { transform: scale(1); }
+  40% { transform: scale(1.04); }
+  100% { transform: scale(1); }
+}
+.consent__go:not(.is-disabled) { animation: consent-pulse 1.6s ease-in-out infinite; }
+@keyframes consent-pulse {
+  0%, 100% { box-shadow: 0 .5rem 0 var(--yellow-shade), 0 0 0 0 rgba(255, 218, 63, .55); }
+  50% { box-shadow: 0 .5rem 0 var(--yellow-shade), 0 0 0 1rem rgba(255, 218, 63, 0); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .consent__arrow, .consent.is-read .consent__check, .consent__go:not(.is-disabled) { animation: none; }
+}
+/* 残席数（実数を手動更新: index-b.html の .consent__seats-num） */
+.consent__seats { margin: 1.1rem 0 0; font-family: var(--ff-head); font-weight: 700; font-size: 1.3rem; line-height: 1.4; text-align: center; color: var(--brown); }
+.consent__seats b { color: #d9342b; font-weight: 800; font-size: 1.5rem; }
+.consent__seats-num { font-family: var(--ff-num); font-weight: 600; font-size: 2.1rem; margin: 0 .1rem; letter-spacing: 0; }
