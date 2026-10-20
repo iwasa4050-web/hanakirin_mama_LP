@@ -1905,8 +1905,8 @@ body.is-locked { overflow: hidden; }
   color: #e5483c;
   text-shadow: 0 0 .3rem #fff, 0 0 .3rem #fff, 0 0 .6rem #fff, 0 0 .6rem #fff, 0 0 1rem #fff, 0 0 1rem #fff, 0 0 1.4rem #fff;
 }
-.fv-title--b .fv-title__pre { font-size: 2.5rem; }
-.fv-title--b .fv-title__main { margin-top: .3rem; font-size: 3.4rem; letter-spacing: .01em; }
+.fv-title--b .fv-title__pre { font-size: 3rem; }
+.fv-title--b .fv-title__main { margin-top: .4rem; font-size: 3.9rem; letter-spacing: 0; }
 .fv-title--b .fv-title__sub { margin-top: .7rem; }
 /* B案 FV: 写真を上げ、サブコピーと見出しを下げる */
 .fv-main { height: 35.5rem; }
@@ -1940,3 +1940,7 @@ body.is-locked { overflow: hidden; }
 
 /* B案: タイマー帯を講師写真より前面に */
 .fv-head--timer { z-index: 5; }
+/* B案 FV: 見出し拡大に合わせて下の要素を調整 */
+.fv-main { height: 41rem; }
+.fv-title--b { top: 21.6rem; }
+.fv-sub { top: 31rem; }
