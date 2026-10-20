@@ -1867,3 +1867,76 @@ body.is-locked { overflow: hidden; }
 /* B案: 必須チェックの文言を2行に */
 .consent__check { font-size: 1.12rem; letter-spacing: 0; gap: .6rem; }
 .consent__check span { white-space: nowrap; }
+/* B案 FV: 悩み呼びかけ→問いかけ→対象→FV内CTA */
+.fv-telop--b {
+  top: 15rem;
+  left: 1.3rem;
+  gap: .55rem;
+  transform: rotate(-3deg);
+  transform-origin: left top;
+  font-size: 1.6rem;
+  line-height: 1.15;
+  letter-spacing: .03em;
+  color: #fff;
+  -webkit-text-stroke: .045em currentColor;
+  paint-order: stroke fill;
+}
+.fv-telop--b span {
+  padding: .35rem .8rem .45rem;
+  border-radius: .3rem;
+  background: rgba(40, 58, 66, .88);
+  color: #fff;
+  text-shadow: none;
+}
+.fv-telop--b span:nth-child(2) { margin-left: 0; }
+.fv-title--b .fv-title__main, .fv-title .fv-title__main { letter-spacing: .01em; }
+.fv-lead__ages { margin-top: .3rem; line-height: 1.6; }
+.fv-age { display: inline-block; margin: 0 .1rem 0 .05rem; font-family: var(--ff-num); font-weight: 600; font-size: 2.8rem; line-height: 1; color: var(--coral-text); letter-spacing: 0; vertical-align: -.15rem; }
+.fv-cta { margin: 1.4rem 0 0; text-align: center; }
+.fv-cta__note { font-family: var(--ff-head); font-weight: 700; font-size: 1.25rem; line-height: 1.4; letter-spacing: 0; color: var(--brown); white-space: nowrap; }
+.fv-cta__note b { color: #d9342b; font-weight: 800; font-size: 1.4rem; }
+.fv-cta__note .fv-seats-num { font-family: var(--ff-num); font-weight: 600; font-size: 1.9rem; margin: 0 .05rem; }
+.fv-cta__btn { margin-top: .6rem; }
+/* B案 FV見出し: 中央揃え・白ボックス無し・強い色＋白ふちどり */
+.fv-title--b { left: 0; right: 0; align-items: center; gap: .2rem; text-align: center; }
+.fv-title--b .fv-title__pre, .fv-title--b .fv-title__main {
+  padding: 0;
+  background: none;
+  color: #e5483c;
+  text-shadow: 0 0 .3rem #fff, 0 0 .3rem #fff, 0 0 .6rem #fff, 0 0 .6rem #fff, 0 0 1rem #fff, 0 0 1rem #fff, 0 0 1.4rem #fff;
+}
+.fv-title--b .fv-title__pre { font-size: 2.5rem; }
+.fv-title--b .fv-title__main { margin-top: .3rem; font-size: 3.4rem; letter-spacing: .01em; }
+.fv-title--b .fv-title__sub { margin-top: .7rem; }
+/* B案 FV: 写真を上げ、サブコピーと見出しを下げる */
+.fv-main { height: 35.5rem; }
+.fv-main .fv-teacher { top: -3.5rem; }
+.fv-title--b { top: 22.3rem; }
+.fv-photos { margin-top: -3.6rem; }
+/* B案 FV: 見出し直下のリード2行（白帯） */
+.fv-main { height: 39.6rem; }
+.fv-sub {
+  position: absolute;
+  z-index: 2;
+  left: 1.2rem;
+  right: 1.2rem;
+  top: 29.6rem;
+  padding: .4rem 0 0;
+  background: none;
+  text-align: center;
+  text-shadow: 0 0 .3rem #fff, 0 0 .3rem #fff, 0 0 .6rem #fff, 0 0 .6rem #fff, 0 0 1rem #fff;
+  color: var(--brown-deep);
+  font-family: var(--ff-head);
+  font-weight: 700;
+  line-height: 1.45;
+  letter-spacing: 0;
+  white-space: nowrap;
+}
+.fv-sub__l1 { font-size: 1.45rem; }
+.fv-sub__l2 { margin-top: .15rem; font-size: 1.55rem; }
+.fv-sub .fv-age { font-size: 2.4rem; vertical-align: -.1rem; }
+.fv-sub .marker { padding: .05rem .2rem; font-weight: 800; font-size: 1.8rem; }
+.fv-photos { margin-top: -1.2rem; }
+
+/* B案: タイマー帯を講師写真より前面に */
+.fv-head--timer { z-index: 5; }
