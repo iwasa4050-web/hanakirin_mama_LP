@@ -13,7 +13,7 @@
 <link rel="preload" as="font" type="font/woff2" href="fonts/mplus1p-700.woff2" crossorigin>
 <link rel="preload" as="image" href="images/fv-teacher2.webp" fetchpriority="high">
 <link rel="preconnect" href="https://connect.facebook.net" crossorigin>
-<link rel="stylesheet" href="css/style-b.css?v=b28">
+<link rel="stylesheet" href="css/style-b.css?v=b31">
 <!-- Meta Pixel Code -->
 <script>
 !function(f,b,e,v,n){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -95,7 +95,7 @@ src="https://www.facebook.com/tr?id=1076592091913767&ev=PageView&noscript=1"
         <span class="fv-title__main">もうやめませんか？</span>
       </h1>
       <div class="fv-sub">
-        <p class="fv-sub__l1">これは、子どもがどんな状況でも</p>
+        <p class="fv-sub__l1">これは、子どもが<em class="fv-sub__em">どんな状況</em>でも</p>
         <p class="fv-sub__l2"><b class="fv-age">0</b>歳でも<b class="fv-age">13</b>歳でも活用できる<span class="marker">子育て術</span>です</p>
       </div>
 
@@ -778,6 +778,37 @@ src="https://www.facebook.com/tr?id=1076592091913767&ev=PageView&noscript=1"
       updateGo(); checkScroll(); consent.querySelector('.consent__close').focus();
     }
     function closeConsent() { consent.hidden = true; document.body.classList.remove('is-locked'); if (lastFocus) lastFocus.focus(); }
+  // スクロール到達(25/50/75/100%)と主要セクションの表示をMetaピクセルへ送る（各1回）
+  (function () {
+    function send(name, params) { if (window.fbq && window.fbEid) { fbq('trackCustom', name, params, { eventID: window.fbEid() }); } }
+    var marks = [25, 50, 75, 100], sentDepth = {};
+    var names = { fv: 'FV', voice: 'Voice', survey: 'Survey', benefit: 'Benefit', schedule: 'Schedule', worry: 'Worry', barrier: 'Barrier', fog: 'Fog', story: 'Story', message: 'Message', teacher: 'Teacher', org: 'Org', program: 'Program', closing: 'Closing', ps: 'PS' };
+    var sections = [], seen = {}, scheduleCount = 0;
+    Array.prototype.forEach.call(document.querySelectorAll('section'), function (el) {
+      var key = el.className.split(' ')[0]; var label = names[key]; if (!label) return;
+      if (key === 'schedule') { scheduleCount++; if (scheduleCount > 1) label = 'Schedule' + scheduleCount; }
+      sections.push({ el: el, label: label });
+    });
+    var ticking = false;
+    function check() {
+      ticking = false;
+      var doc = document.documentElement, max = doc.scrollHeight - window.innerHeight;
+      if (max > 0) {
+        var pct = Math.round((window.scrollY / max) * 100);
+        marks.forEach(function (m) { if (pct >= m && !sentDepth[m]) { sentDepth[m] = true; send('ScrollDepth', { depth: m }); } });
+      }
+      var line = window.innerHeight * 0.55; // セクション上端が画面の上55%に入ったら「表示」とみなす
+      sections.forEach(function (sc) {
+        if (seen[sc.label]) return;
+        var r = sc.el.getBoundingClientRect();
+        if (r.top < line) { seen[sc.label] = true; send('SectionView', { section: sc.label }); } // 一気に通り過ぎた場合も「到達」として記録
+      });
+    }
+    function onScroll() { if (!ticking) { ticking = true; window.requestAnimationFrame(check); } }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('load', function () { setTimeout(check, 1500); });
+  })();
+
   // P.S.の背景画像は近づいてから読み込む
   (function () {
     var ps = document.querySelector('.ps');
