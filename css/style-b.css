@@ -1944,3 +1944,10 @@ body.is-locked { overflow: hidden; }
 .fv-main { height: 41rem; }
 .fv-title--b { top: 21.6rem; }
 .fv-sub { top: 31rem; }
+.fv-sub__em { font-size: 1.9rem; font-weight: 800; color: var(--coral-text); }
+/* B案 HL「子どもにイライラしない／子育て術」 */
+.fv-title--b .fv-title__pre { font-size: 2.9rem; }
+.fv-title--b .fv-title__main { font-size: 4.6rem; margin-top: .2rem; }
+/* B案 FV: リード3行 */
+.fv-sub__l3 { margin-top: .15rem; font-size: 1.55rem; }
+.fv-main { height: 43.6rem; }
