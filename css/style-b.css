@@ -2012,3 +2012,6 @@ body.is-locked { overflow: hidden; }
 .fv-title--ask .fv-title__ask { margin-top: .75rem; }
 .fv-main { height: 50.7rem; }
 .fv-sub { top: 38.6rem; }
+/* B案 FV: 「子育て術」を大きく、「を知りたい人」は控えめに */
+.fv-title--ask .fv-title__main { font-size: 3.6rem; }
+.fv-title--ask .fv-title__main small { font-size: .75em; font-weight: inherit; }
