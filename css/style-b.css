@@ -1997,3 +1997,9 @@ body.is-locked { overflow: hidden; }
 .fv-title--b { top: 26rem; }
 .fv-sub { top: 35.4rem; }
 .fv-main::after { height: 58%; }
+/* B案 FV: 見出しを3行（…子育て術が欲しい人 他にいませんか？）に */
+.fv-title--ask .fv-title__pre { font-size: 2.6rem; }
+.fv-title--ask .fv-title__main { font-size: 3.3rem; margin-top: .2rem; }
+.fv-title--ask .fv-title__ask { font-size: 3.7rem; margin-top: .3rem; }
+.fv-main { height: 49.8rem; }
+.fv-sub { top: 37.7rem; }
