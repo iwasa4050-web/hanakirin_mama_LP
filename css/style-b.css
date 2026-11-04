@@ -2003,3 +2003,7 @@ body.is-locked { overflow: hidden; }
 .fv-title--ask .fv-title__ask { font-size: 3.7rem; margin-top: .3rem; }
 .fv-main { height: 49.8rem; }
 .fv-sub { top: 37.7rem; }
+/* B案 FV: 後援表記を写真の下に1行で */
+.fv-support { display: flex; align-items: center; justify-content: center; gap: .5rem; margin: 2.4rem auto 0; color: var(--coral-text); font-family: var(--ff-head); font-weight: 800; font-size: 1.55rem; line-height: 1.3; letter-spacing: 0; white-space: nowrap; }
+.fv-support svg { width: 1.8rem; flex: none; fill: currentColor; }
+.fv-support + .fv-chosen { margin-top: 1rem; }
