@@ -1173,9 +1173,8 @@ em, i { font-style: normal; }
   transform: rotate(-6deg);
 }
 .fv-free svg { width: 2.05rem; margin-bottom: .2rem; fill: var(--yellow); }
-.fv-free--support { font-size: 1.75rem; line-height: 1.05; }
-.fv-free--support svg { width: 1.7rem; margin-bottom: .1rem; }
-.fv-free--support small { display: block; font-size: 1.05rem; line-height: 1.25; letter-spacing: .01em; margin-bottom: .15rem; }
+.fv-free--support { font-size: 1.25rem; line-height: 1.3; letter-spacing: 0; }
+.fv-free--support svg { width: 1.7rem; margin-bottom: .15rem; }
 
 .schedule-card__addr { margin-top: .2rem; font-family: var(--ff-body); font-weight: 400; font-size: 1.3rem; line-height: 1.6; }
 .schedule-card__solo { display: block; margin-top: .2rem; font-family: var(--ff-body); font-weight: 400; font-size: 1.3rem; line-height: 1.6; }
