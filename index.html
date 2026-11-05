@@ -16,6 +16,8 @@
 <link rel="stylesheet" href="css/style.css?v=202610171330">
 <!-- Meta Pixel Code -->
 <script>
+/* ローカル確認（localhost・ファイル直開き）では計測を送らない */
+if(/^(localhost|127\.0\.0\.1|\[::1\])?$/.test(location.hostname)||/\.(localhost|test)$/.test(location.hostname)){window.fbq=function(){};}
 !function(f,b,e,v,n){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
 n.callMethod.apply(n,arguments):n.queue.push(arguments)};
 if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];
