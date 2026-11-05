@@ -2015,3 +2015,5 @@ body.is-locked { overflow: hidden; }
 /* B案 FV: 「子育て術」を大きく、「を知りたい人」は控えめに */
 .fv-title--ask .fv-title__main { font-size: 3.6rem; }
 .fv-title--ask .fv-title__main small { font-size: .75em; font-weight: inherit; }
+/* 見出し1〜2行目を黒に（3行目「他にいませんか？」はコーラルのまま） */
+.fv-title--ask .fv-title__pre, .fv-title--ask .fv-title__main:not(.fv-title__ask) { color: #1a1a1a; }
