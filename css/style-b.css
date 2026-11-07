@@ -2047,3 +2047,7 @@ body.is-locked { overflow: hidden; }
 @media (prefers-reduced-motion: reduce) {
   .consent .consent__check.is-nudge, .consent__hint.is-nudge { animation: none; }
 }
+
+/* B案 FV: 見出しを「子どもにイライラしない／子育て術」2行・両方赤に戻す（3行版のfv-title--askは未使用に）。写真高さと説明文位置も2行版の値に戻す */
+.fv-main { height: 47.5rem; }
+.fv-sub { top: 35.4rem; }
