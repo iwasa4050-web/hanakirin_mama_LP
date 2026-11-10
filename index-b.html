@@ -667,36 +667,6 @@ src="https://www.facebook.com/tr?id=1076592091913767&ev=PageView&noscript=1"
 
 </div>
 
-<!-- 申込前のプライバシーポリシー同意（CVボタンを押すと開く） -->
-<div class="consent" id="consent" role="dialog" aria-modal="true" aria-labelledby="consent-title" hidden>
-  <div class="consent__panel">
-    <button type="button" class="consent__close" aria-label="閉じる">×</button>
-    <h2 class="consent__title" id="consent-title">個人情報の取扱いについて</h2>
-    <p class="consent__lead"><b>最後まで読んでチェックを入れると予約できます。</b></p>
-    <div class="consent__body" tabindex="0">
-      <p>本セミナーへのお申込みに際してご提供いただく個人情報は、本セミナーの運営、参加者への連絡、質問・相談への対応、アフターフォローその他当会のプライバシーポリシーに定める目的で利用します。</p>
-      <p>また、本セミナーについては、当会（一般社団法人暮らし振興支援機構）及び本セミナーの講師、スピーカー、開催協力者その他これらに準ずる立場を務める下記会員との間で、申込者及び参加者の個人情報を共同利用します。</p>
-      <h3>共同利用者</h3>
-      <ul class="consent__list">
-        <li>当会（一般社団法人暮らし振興支援機構）</li>
-        <li>本セミナーの講師としてセミナー案内ページに記載されている当会所属会員（当該講師個人が当会の会員ではなく、当該講師個人が所属する法人が当会の会員である場合には、当該所属法人を指します。）</li>
-        <li>本セミナーの開催協力者としてセミナー案内ページに記載されている当会所属会員（当該開催協力者個人が当会の会員ではなく、当該開催協力者個人が所属する法人が当会の会員である場合には、当該所属法人を指します。）</li>
-      </ul>
-      <p>共同利用者は、本セミナーの運営及びアフターフォローのほか、共同利用者が取り扱う商品・サービス・イベント等の案内及び紹介その他プライバシーポリシーに定める目的で、共同利用する個人情報を利用することがあります。</p>
-      <p>共同利用する個人情報の項目、利用目的、管理責任者その他の詳細については、当会の「プライバシーポリシー」をご確認ください。</p>
-      <p class="consent__policy"><a href="https://hanakirin.or.jp/privacy-policy/" target="_blank" rel="noopener">プライバシーポリシーを確認する</a></p>
-      <p class="consent__end">— 以上 —</p>
-    </div>
-    <p class="consent__hint"><span class="consent__arrow" aria-hidden="true"></span>最後までスクロールするとチェックできます</p>
-    <label class="consent__check">
-      <input type="checkbox" id="consent-agree" disabled>
-      <span><b class="consent__req">【必須】</b>上記の「個人情報の取扱いについて」及び<br>当会のプライバシーポリシーを確認しました。</span>
-    </label>
-    <a class="btn-cta consent__go is-disabled" href="https://hanakirin.or.jp/entry/?post_id=27394" target="_blank" rel="noopener" aria-disabled="true">無料で席を予約する</a>
-    <p class="consent__seats">先着30組のうち <b>残り<span class="consent__seats-num">7</span>組</b></p>
-  </div>
-</div>
-
 <!-- 追従CTA（オファー付近ではフェードアウト） -->
 <a class="float-cta" href="https://hanakirin.or.jp/entry/?post_id=27394" target="_blank" rel="noopener" aria-label="無料で席を予約しておく">
   <small>参加費無料</small>
@@ -756,41 +726,6 @@ src="https://www.facebook.com/tr?id=1076592091913767&ev=PageView&noscript=1"
   }
   window.addEventListener('scroll', onScroll, { passive: true });
 
-  // 申込前のプライバシーポリシー同意モーダル
-  var consent = document.getElementById('consent');
-  if (consent) {
-    var body = consent.querySelector('.consent__body');
-    var agree = document.getElementById('consent-agree');
-    var go = consent.querySelector('.consent__go');
-    var hint = consent.querySelector('.consent__hint');
-    var check = consent.querySelector('.consent__check');
-    var ARROW = '<span class="consent__arrow" aria-hidden="true"></span>';
-    var lastFocus = null;
-    // 案内文を「読む → チェック → 予約ボタン」の今の段階に合わせる
-    function setHint() {
-      hint.classList.toggle('is-done', agree.checked);
-      if (agree.disabled) { hint.innerHTML = ARROW + '最後までスクロールするとチェックできます'; }
-      else if (!agree.checked) { hint.innerHTML = ARROW + '下のチェックを入れると予約ボタンが押せます'; }
-      else { hint.textContent = 'ありがとうございます！予約ボタンを押してください'; }
-    }
-    // 次にすべき場所を揺らして知らせる
-    function nudge(el) { el.classList.remove('is-nudge'); void el.offsetWidth; el.classList.add('is-nudge'); }
-    function reachedEnd() { return body.scrollTop + body.clientHeight >= body.scrollHeight - 8; }
-    var scrolledEndSent = false;
-    function checkScroll() {
-      if (reachedEnd() && !scrolledEndSent) { scrolledEndSent = true; if (window.fbq) { fbq('trackCustom', 'ConsentScrolledEnd', {}, { eventID: window.fbEid() }); } }
-      if (reachedEnd() && agree.disabled) { agree.disabled = false; consent.classList.add('is-read'); setHint(); }
-    }
-    function updateGo() { var ok = agree.checked; go.classList.toggle('is-disabled', !ok); go.setAttribute('aria-disabled', ok ? 'false' : 'true'); consent.classList.toggle('is-checked', ok); setHint(); }
-    function openConsent(e) {
-      e.preventDefault(); lastFocus = e.currentTarget;
-      if (window.fbq) { fbq('track', 'InitiateCheckout', {}, { eventID: window.fbEid() }); }
-      consent.hidden = false; document.body.classList.add('is-locked');
-      body.scrollTop = 0; agree.checked = false; agree.disabled = true;
-      consent.classList.remove('is-read');
-      updateGo(); checkScroll(); consent.querySelector('.consent__close').focus();
-    }
-    function closeConsent() { consent.hidden = true; document.body.classList.remove('is-locked'); if (lastFocus) lastFocus.focus(); }
   // スクロール到達(25/50/75/100%)と主要セクションの表示をMetaピクセルへ送る（各1回）
   (function () {
     function send(name, params) { if (window.fbq && window.fbEid) { fbq('trackCustom', name, params, { eventID: window.fbEid() }); } }
@@ -832,15 +767,14 @@ src="https://www.facebook.com/tr?id=1076592091913767&ev=PageView&noscript=1"
     }, { rootMargin: '900px 0px' });
     io.observe(ps);
   })();
-    document.querySelectorAll('a.btn-cta:not(.consent__go), a.float-cta').forEach(function (el) { el.addEventListener('click', openConsent); });
-    body.addEventListener('scroll', checkScroll, { passive: true });
-    agree.addEventListener('change', updateGo);
-    check.addEventListener('click', function () { if (agree.disabled) nudge(hint); });
-    go.addEventListener('click', function (e) { if (go.classList.contains('is-disabled')) { e.preventDefault(); if (agree.disabled) { nudge(hint); } else { nudge(check); } return; } if (window.fbq) { fbq('track', 'Lead', {}, { eventID: window.fbEid() }); } closeConsent(); });
-    consent.querySelector('.consent__close').addEventListener('click', closeConsent);
-    consent.addEventListener('click', function (e) { if (e.target === consent) closeConsent(); });
-    document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !consent.hidden) closeConsent(); });
-  }
+  // CVボタンは同意モーダルを挟まず申込フォームへ直接移動する。押した時点でMetaピクセルへ送る（1回のページ表示につき1回）
+  var ctaSent = false;
+  document.querySelectorAll('a.btn-cta, a.float-cta').forEach(function (el) { el.addEventListener('click', function () {
+    if (ctaSent || !window.fbq || !window.fbEid) return;
+    ctaSent = true;
+    fbq('track', 'InitiateCheckout', {}, { eventID: window.fbEid() });
+    fbq('track', 'Lead', {}, { eventID: window.fbEid() });
+  }); });
   document.querySelectorAll('.footer__top').forEach(function (el) { el.addEventListener('click', function (e) {
     e.preventDefault();
     var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
